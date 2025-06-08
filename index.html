@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAI - AI Consulting</title>
+    <style>
+        :root {
+            --accent-purple: #8B5CF6;
+            --accent-blue: #3B82F6;
+            --accent-pink: #EC4899;
+            --bg-dark: #0D0D0D;
+            --bg-card: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --border-color: #2D2D2D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 4rem;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.8) 100%);
+        }
+
+        .glitch-text {
+            font-size: 4.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .terminal-green {
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+        }
+
+        .process {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .process-step {
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            background-color: rgba(0, 247, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .process-step:hover {
+            transform: translateX(10px);
+            background-color: rgba(0, 247, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 247, 255, 0.2);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            color: var(--accent-purple);
+            font-weight: bold;
+            text-shadow: 0 0 10px var(--accent-purple);
+            min-width: 80px;
+        }
+
+        .step-content h2 {
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-purple);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-blue);
+            color: #fff;
+            box-shadow: 0 0 20px var(--accent-purple);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 var(--accent-purple), -0.03em -0.04em 0 var(--accent-pink),
+                    0.025em 0.04em 0 var(--accent-blue);
+            }
+            15% {
+                text-shadow: 0.05em 0 0 var(--accent-purple), -0.03em -0.04em 0 var(--accent-pink),
+                    0.025em 0.04em 0 var(--accent-blue);
+            }
+            16% {
+                text-shadow: -0.05em -0.025em 0 var(--accent-purple), 0.025em 0.035em 0 var(--accent-pink),
+                    -0.05em -0.05em 0 var(--accent-blue);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 var(--accent-purple), 0.025em 0.035em 0 var(--accent-pink),
+                    -0.05em -0.05em 0 var(--accent-blue);
+            }
+            50% {
+                text-shadow: 0.05em 0.035em 0 var(--accent-purple), 0.03em 0 0 var(--accent-pink),
+                    0 -0.04em 0 var(--accent-blue);
+            }
+            99% {
+                text-shadow: 0.05em 0.035em 0 var(--accent-purple), 0.03em 0 0 var(--accent-pink),
+                    0 -0.04em 0 var(--accent-blue);
+            }
+            100% {
+                text-shadow: -0.05em 0 0 var(--accent-purple), -0.025em -0.04em 0 var(--accent-pink),
+                    -0.04em -0.025em 0 var(--accent-blue);
+            }
+        }
+
+        .use-cases {
+            margin: 6rem 0;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .use-cases-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .use-cases-header h2 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .carousel-wrapper {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+        }
+
+        .carousel-arrow {
+            height: 50px;
+            width: 50px;
+            background: var(--bg-card);
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-arrow:hover {
+            background: var(--accent-purple);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .carousel-arrow.left {
+            left: -25px;
+        }
+
+        .carousel-arrow.right {
+            right: -25px;
+        }
+
+        .carousel {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: calc((100% / 3) - 12px);
+            gap: 2rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel.dragging {
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+        }
+
+        .carousel.no-transition {
+            scroll-behavior: auto;
+        }
+
+        .carousel.dragging .case-card {
+            cursor: grab;
+            user-select: none;
+        }
+
+        .case-card {
+            scroll-snap-align: start;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(139, 92, 246, 0.1),
+                rgba(236, 72, 153, 0.1)
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
+        }
+
+        .case-card:hover::before {
+            opacity: 1;
+        }
+
+        .case-card h3 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .case-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .case-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-purple);
+            border: 1px solid var(--accent-purple);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .case-tag:hover {
+            background: rgba(139, 92, 246, 0.2);
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .metrics {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .metric {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metric::before {
+            content: '>';
+            color: var(--accent-purple);
+            font-weight: bold;
+        }
+
+        @media (max-width: 1200px) {
+            .carousel {
+                grid-auto-columns: calc((100% / 2) - 1rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .carousel {
+                grid-auto-columns: 100%;
+            }
+            .carousel-arrow {
+                display: none;
+            }
+        }
+
+        .contact-section {
+            margin: 6rem auto;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-header h2 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent-purple);
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="glitch-text">FastAI</h1>
+            <p class="subtitle">> Understand how Artificial Intelligence can Accelerate <span class="terminal-green">your</span> Business_</p>
+        </header>
+
+        <section class="process">
+            <div class="process-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h2>> Identify</h2>
+                    <p>We analyze your business operations to identify high-impact AI & ML use cases. Our expert team maps out opportunities where AI can drive efficiency, innovation, and growth.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h2>> Build</h2>
+                    <p>Our skilled engineers develop custom AI solutions tailored to your specific needs. We leverage cutting-edge machine learning technologies to create powerful, scalable systems.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h2>> Deploy</h2>
+                    <p>We seamlessly integrate AI solutions into your existing infrastructure, ensuring smooth deployment and operational excellence. Our team provides comprehensive support throughout the transition.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="use-cases">
+            <div class="use-cases-header">
+                <h2>> Use Cases_</h2>
+                <p class="subtitle">Real-world AI implementations that drive results</p>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel-arrow left">&lt;</div>
+                <div class="carousel-arrow right">&gt;</div>
+                <div class="carousel">
+                    <div class="case-card">
+                        <h3>> Automated Invoice Handling</h3>
+                        <p>End-to-end solution for extracting and processing invoice line items using OCR and AI.</p>
+                        <div class="tags">
+                            <span class="case-tag">Machine Learning</span>
+                            <span class="case-tag">OCR</span>
+                            <span class="case-tag">AWS</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">60% faster processing</div>
+                            <div class="metric">30% improved accuracy</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Insurance Policy Lapse</h3>
+                        <p>Predictive ML model to identify and reduce policy lapses through targeted interventions.</p>
+                        <div class="tags">
+                            <span class="case-tag">Predictive Analytics</span>
+                            <span class="case-tag">Databricks</span>
+                            <span class="case-tag">Python</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">2% reduction in lapse rate</div>
+                            <div class="metric">Improved retention</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Medical Diagnostics</h3>
+                        <p>Ensemble models for predicting psychiatric conditions using physiological data.</p>
+                        <div class="tags">
+                            <span class="case-tag">Deep Learning</span>
+                            <span class="case-tag">Healthcare</span>
+                            <span class="case-tag">Signal Processing</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">75% detection rate</div>
+                            <div class="metric">Early intervention enabled</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Insurance Chatbot</h3>
+                        <p>LLM-powered chatbot enabling natural language access to client data.</p>
+                        <div class="tags">
+                            <span class="case-tag">LLM</span>
+                            <span class="case-tag">NLP</span>
+                            <span class="case-tag">API Integration</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Automated advisor queries</div>
+                            <div class="metric">Enhanced efficiency</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Sleep Analysis AI</h3>
+                        <p>ML models for predicting sleep stage transitions and classifying sleep states from EEG data.</p>
+                        <div class="tags">
+                            <span class="case-tag">Time Series</span>
+                            <span class="case-tag">Biomedical</span>
+                            <span class="case-tag">ML</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Enhanced accuracy</div>
+                            <div class="metric">Real-time monitoring</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Water Production AI</h3>
+                        <p>Scalable ML pipelines to forecast water production and optimize maintenance for utility networks.</p>
+                        <div class="tags">
+                            <span class="case-tag">ML Pipelines</span>
+                            <span class="case-tag">Azure</span>
+                            <span class="case-tag">PySpark</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Improved forecasting</div>
+                            <div class="metric">Reduced maintenance costs</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Cognitive Science RL</h3>
+                        <p>Research project modeling human and animal decision-making using reinforcement learning.</p>
+                        <div class="tags">
+                            <span class="case-tag">RL</span>
+                            <span class="case-tag">Cognitive Modeling</span>
+                            <span class="case-tag">Python</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Novel behavioral insights</div>
+                            <div class="metric">Published research</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> AI Podcast Generator</h3>
+                        <p>AI-driven system to generate podcast snippets from audiobooks using LLM APIs.</p>
+                        <div class="tags">
+                            <span class="case-tag">NLP</span>
+                            <span class="case-tag">Audio Processing</span>
+                            <span class="case-tag">LLM</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Automated content creation</div>
+                            <div class="metric">New media business models</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="contact-header">
+                <h2>> Initialize Consultation_</h2>
+                <p class="subtitle">Let's accelerate your business with AI</p>
+            </div>
+            <form id="consultationForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">> Name_</label>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">> Email_</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="subject">> Subject_</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject...</option>
+                        <option value="ml">Machine Learning Solutions</option>
+                        <option value="nlp">Natural Language Processing</option>
+                        <option value="cv">Computer Vision</option>
+                        <option value="rl">Reinforcement Learning</option>
+                        <option value="data">Data Analytics & BI</option>
+                        <option value="other">Other AI Solutions</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">> Message_</label>
+                    <textarea id="message" name="message" required placeholder="I want to discuss if AI is right for my business..."></textarea>
+                </div>
+                <button type="submit" class="cta-button">Initialize Consultation()</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 FastAI. All rights reserved.</p>
+            <p>[ Status: AI Systems Operational | Ready for Deployment ]</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        (async function() {
+            try {
+                // Get configuration including public key
+                const config = await fetch('/config').then(res => res.json());
+                
+                // We know the service ID from your EmailJS dashboard
+                const SERVICE_ID = 'service_4igwp4s';
+                
+                // Initialize EmailJS with public key from config
+                emailjs.init(config.publicKey);
+
+                // Handle form submission
+                document.getElementById('consultationForm').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
+                    
+                    try {
+                        const result = await emailjs.send(
+                            SERVICE_ID,
+                            config.templateId,
+                            {
+                                name: name,
+                                email: email,
+                                message: message,
+                                time: new Date().toLocaleString(),
+                                subject: `Consultation enquiry from FastAI - ${subject}`
+                            }
+                        );
+
+                        alert('Thank you for your message! We will contact you shortly.');
+                        e.target.reset();
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert('Sorry, there was an error sending your message. Please try again later.');
+                    }
+                });
+            } catch (error) {
+                console.error('Error initializing EmailJS:', error);
+            }
+        })();
+
+        // Carousel code remains unchanged
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.querySelector('.carousel');
+            const arrowBtns = document.querySelectorAll('.carousel-arrow');
+            const firstCardWidth = carousel.querySelector('.case-card').offsetWidth + 32;
+            let isDragging = false, startX, startScrollLeft;
+
+            arrowBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    carousel.scrollLeft += btn.classList.contains('left') ? -firstCardWidth : firstCardWidth;
+                });
+            });
+
+            const dragStart = (e) => {
+                isDragging = true;
+                carousel.classList.add('dragging');
+                startX = e.pageX;
+                startScrollLeft = carousel.scrollLeft;
+            };
+
+            const dragging = (e) => {
+                if (!isDragging) return;
+                carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+            };
+
+            const dragStop = () => {
+                isDragging = false;
+                carousel.classList.remove('dragging');
+            };
+
+            carousel.addEventListener('mousedown', dragStart);
+            carousel.addEventListener('mousemove', dragging);
+            document.addEventListener('mouseup', dragStop);
+        });
+    </script>
+</body>
+</html> 
