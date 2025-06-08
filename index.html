@@ -605,10 +605,6 @@
             </div>
             <form id="consultationForm" class="contact-form">
                 <div class="form-group">
-                    <label for="name">> Name_</label>
-                    <input type="text" id="name" name="name" placeholder="Your name">
-                </div>
-                <div class="form-group">
                     <label for="email">> Email_</label>
                     <input type="email" id="email" name="email" required placeholder="your.email@example.com">
                 </div>
@@ -640,49 +636,41 @@
 
     <script>
         // Initialize EmailJS
-        (async function() {
-            try {
-                // Get configuration including public key
-                const config = await fetch('/config').then(res => res.json());
-                
-                // We know the service ID from your EmailJS dashboard
-                const SERVICE_ID = 'service_4igwp4s';
-                
-                // Initialize EmailJS with public key from config
-                emailjs.init(config.publicKey);
+        (function() {
+            // Initialize EmailJS with your public key
+            emailjs.init("X9e0kAeZEMHh2jhn2"); // PUBLIC KEY: Replace with your actual EmailJS public key
 
-                // Handle form submission
-                document.getElementById('consultationForm').addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const subject = document.getElementById('subject').value;
-                    const message = document.getElementById('message').value;
-                    
-                    try {
-                        const result = await emailjs.send(
-                            SERVICE_ID,
-                            config.templateId,
-                            {
-                                name: name,
-                                email: email,
-                                message: message,
-                                time: new Date().toLocaleString(),
-                                subject: `Consultation enquiry from FastAI - ${subject}`
-                            }
-                        );
+            // Handle form submission
+            document.getElementById('consultationForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Extract name from email (everything before @)
+                const name = email.split('@')[0];
+                
+                try {
+                    const result = await emailjs.send(
+                        "service_4igwp4s", // Your EmailJS service ID
+                        "template_cgivi1h",  // Replace with your EmailJS template ID
+                        {
+                            name: name,
+                            email: email,
+                            message: message,
+                            time: new Date().toLocaleString(),
+                            subject: `Consultation enquiry from FastAI - ${subject}`
+                        }
+                    );
 
-                        alert('Thank you for your message! We will contact you shortly.');
-                        e.target.reset();
-                    } catch (error) {
-                        console.error('Error:', error);
-                        alert('Sorry, there was an error sending your message. Please try again later.');
-                    }
-                });
-            } catch (error) {
-                console.error('Error initializing EmailJS:', error);
-            }
+                    alert('Thank you for your message! We will contact you shortly.');
+                    e.target.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Sorry, there was an error sending your message. Please try again later.');
+                }
+            });
         })();
 
         // Carousel code remains unchanged

@@ -1,4 +1,4 @@
-# FastAI Website with Contact Form
+# FastAI :)
 
 This is a website for FastAI consulting with an integrated contact form using EmailJS.
 
@@ -13,7 +13,7 @@ This is a website for FastAI consulting with an integrated contact form using Em
 2. **EmailJS Configuration**
    - Go to [EmailJS Dashboard](https://dashboard.emailjs.com/sign-up)
    - Sign up or log in to your account
-   - Note: Your Gmail service ID is already configured as `service_4igwp4s`
+   - Note: Your Gmail service ID is already configured as `EMAILJS_SERVICE_ID`
    - Create an email template:
      - Click on "Email Templates" in the dashboard
      - Create a new template
