@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FastAI - AI Consulting</title>
     <style>
+        /* Add JetBrains Mono font import at the top */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap');
+
         :root {
             --accent-purple: #8B5CF6;
             --accent-blue: #3B82F6;
@@ -44,8 +47,9 @@
         }
 
         .glitch-text {
-            font-size: 4.5rem;
-            font-weight: bold;
+            font-size: 5.5rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', monospace;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
@@ -53,6 +57,12 @@
             background-clip: text;
             color: transparent;
             margin-bottom: 1rem;
+        }
+
+        /* Add font loading check */
+        .fonts-loaded .glitch-text {
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
 
         .subtitle {
@@ -440,14 +450,33 @@
             color: var(--text-secondary);
         }
 
+        /* Center the submit button */
+        .contact-form .cta-button {
+            display: block;
+            margin: 0 auto;
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Font loading check
+        if ('fonts' in document) {
+            Promise.all([
+                document.fonts.load('800 1em JetBrains Mono'),
+            ]).then(() => {
+                document.documentElement.classList.add('fonts-loaded');
+                console.log('JetBrains Mono has loaded successfully');
+            }).catch(err => {
+                console.warn('Font loading failed:', err);
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <header>
             <h1 class="glitch-text">FastAI</h1>
             <p class="subtitle">> Understand how Artificial Intelligence can Accelerate <span class="terminal-green">your</span> Business_</p>
+            <p class="subtitle" style="font-size: 1rem; margin-top: 2rem;">AI is the most transformative technology of our time. We cut through the hype to identify practical, high-impact solutions tailored to your business.</p>
         </header>
 
         <section class="process">
@@ -476,122 +505,173 @@
 
         <section class="use-cases">
             <div class="use-cases-header">
-                <h2>> Use Cases_</h2>
-                <p class="subtitle">Real-world AI implementations that drive results</p>
+                <h2>> Key Projects_</h2>
             </div>
             <div class="carousel-wrapper">
                 <div class="carousel-arrow left">&lt;</div>
                 <div class="carousel-arrow right">&gt;</div>
                 <div class="carousel">
                     <div class="case-card">
-                        <h3>> Automated Invoice Handling</h3>
-                        <p>End-to-end solution for extracting and processing invoice line items using OCR and AI.</p>
+                        <h3>> Automated Invoice Processing</h3>
+                        <p>Implemented an end-to-end solution to extract and process invoice line items using OCR and AI, compiling editable tables and automatically flagging exceptions. This system drastically reduced manual processing time and improved claims accuracy.</p>
                         <div class="tags">
                             <span class="case-tag">Machine Learning</span>
                             <span class="case-tag">OCR</span>
-                            <span class="case-tag">AWS</span>
-                        </div>
-                        <div class="metrics">
-                            <div class="metric">60% faster processing</div>
-                            <div class="metric">30% improved accuracy</div>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <h3>> Insurance Policy Lapse</h3>
-                        <p>Predictive ML model to identify and reduce policy lapses through targeted interventions.</p>
-                        <div class="tags">
-                            <span class="case-tag">Predictive Analytics</span>
-                            <span class="case-tag">Databricks</span>
                             <span class="case-tag">Python</span>
+                            <span class="case-tag">AWS</span>
+                            <span class="case-tag">LLM</span>
+                            <span class="case-tag">Automation</span>
                         </div>
                         <div class="metrics">
-                            <div class="metric">2% reduction in lapse rate</div>
-                            <div class="metric">Improved retention</div>
+                            <div class="metric">Reduced invoice processing time by 60%</div>
+                            <div class="metric">Improved claim accuracy by 5%</div>
                         </div>
                     </div>
 
                     <div class="case-card">
-                        <h3>> Medical Diagnostics</h3>
-                        <p>Ensemble models for predicting psychiatric conditions using physiological data.</p>
+                        <h3>> Reducing Insurance Policy Lapse (NTU)</h3>
+                        <p>Developed a predictive ML model to identify and reduce policy lapses ("not taken up") in insurance, allowing targeted interventions. The model enabled more effective retention strategies and improved policy uptake rates.</p>
                         <div class="tags">
-                            <span class="case-tag">Deep Learning</span>
-                            <span class="case-tag">Healthcare</span>
-                            <span class="case-tag">Signal Processing</span>
+                            <span class="case-tag">Machine Learning</span>
+                            <span class="case-tag">Predictive Analytics</span>
+                            <span class="case-tag">Python</span>
+                            <span class="case-tag">Databricks</span>
                         </div>
                         <div class="metrics">
-                            <div class="metric">75% detection rate</div>
-                            <div class="metric">Early intervention enabled</div>
+                            <div class="metric">2% reduction in policy lapse rate</div>
+                            <div class="metric">Significant uplift in customer retention</div>
                         </div>
                     </div>
 
                     <div class="case-card">
-                        <h3>> Insurance Chatbot</h3>
-                        <p>LLM-powered chatbot enabling natural language access to client data.</p>
+                        <h3>> Sales Analytics Chatbot</h3>
+                        <p>Built a custom LLM-powered chatbot for financial advisors and managers, enabling natural language access to client data, sales performance analytics, and policy editing through secure, conversational interfaces.</p>
                         <div class="tags">
                             <span class="case-tag">LLM</span>
                             <span class="case-tag">NLP</span>
+                            <span class="case-tag">Chatbot</span>
                             <span class="case-tag">API Integration</span>
                         </div>
                         <div class="metrics">
-                            <div class="metric">Automated advisor queries</div>
-                            <div class="metric">Enhanced efficiency</div>
+                            <div class="metric">Automated manual advisor queries</div>
+                            <div class="metric">Provide an easy to use interface for managers</div>
                         </div>
                     </div>
 
                     <div class="case-card">
-                        <h3>> Sleep Analysis AI</h3>
-                        <p>ML models for predicting sleep stage transitions and classifying sleep states from EEG data.</p>
+                        <h3>> Medical Diagnostic Modelling</h3>
+                        <p>Designed and deployed ensemble models to predict psychiatric conditions such as major depressive disorder (MDD), bipolar disorder, and other mental health states using high-frequency physiological data.</p>
                         <div class="tags">
-                            <span class="case-tag">Time Series</span>
-                            <span class="case-tag">Biomedical</span>
-                            <span class="case-tag">ML</span>
+                            <span class="case-tag">Deep Learning</span>
+                            <span class="case-tag">Ensemble Modelling</span>
+                            <span class="case-tag">Signal Processing</span>
+                            <span class="case-tag">Python</span>
                         </div>
                         <div class="metrics">
-                            <div class="metric">Enhanced accuracy</div>
-                            <div class="metric">Real-time monitoring</div>
+                            <div class="metric">Achieved 75% FPR / 65% FNR in clinical benchmarks</div>
+                            <div class="metric">Enabled earlier intervention for high-risk cases</div>
                         </div>
                     </div>
 
                     <div class="case-card">
-                        <h3>> Water Production AI</h3>
-                        <p>Scalable ML pipelines to forecast water production and optimize maintenance for utility networks.</p>
+                        <h3>> High-Frequency Signal Denoising</h3>
+                        <p>Developed and released in-house algorithms for denoising EEG/EOG physiological signals, used as a preprocessing step for downstream ML models.</p>
                         <div class="tags">
-                            <span class="case-tag">ML Pipelines</span>
-                            <span class="case-tag">Azure</span>
-                            <span class="case-tag">PySpark</span>
+                            <span class="case-tag">Signal Processing</span>
+                            <span class="case-tag">Electrical Engineering</span>
+                            <span class="case-tag">AWS</span>
+                            <span class="case-tag">Python</span>
                         </div>
                         <div class="metrics">
-                            <div class="metric">Improved forecasting</div>
-                            <div class="metric">Reduced maintenance costs</div>
+                            <div class="metric">Improved data input quality</div>
+                            <div class="metric">Enabled robust high-frequency data analytics & ML</div>
                         </div>
                     </div>
 
                     <div class="case-card">
-                        <h3>> Cognitive Science RL</h3>
-                        <p>Research project modeling human and animal decision-making using reinforcement learning.</p>
+                        <h3>> Sleep Stage Transition & Sleep Staging</h3>
+                        <p>Built machine learning models to predict sleep stage transitions (e.g., N3 → REM) and to classify sleep states from raw EEG data, aiding in sleep quality analysis.</p>
                         <div class="tags">
-                            <span class="case-tag">RL</span>
+                            <span class="case-tag">Machine Learning</span>
+                            <span class="case-tag">Time Series Analysis</span>
+                            <span class="case-tag">Biomedical Data</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Enhanced accuracy in sleep quality monitoring</div>
+                            <div class="metric">Valuable features for sleep health studies</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Modeling Human & Animal Cognitive Processing with RL</h3>
+                        <p>Led a research project modeling human and animal decision-making using reinforcement learning (RL) to uncover the mechanisms underlying choice behavior.</p>
+                        <div class="tags">
+                            <span class="case-tag">Reinforcement Learning</span>
                             <span class="case-tag">Cognitive Modeling</span>
                             <span class="case-tag">Python</span>
                         </div>
                         <div class="metrics">
-                            <div class="metric">Novel behavioral insights</div>
-                            <div class="metric">Published research</div>
+                            <div class="metric">Provided novel insights into cognitive behavior</div>
+                            <div class="metric">Published results in scientific collaboration</div>
                         </div>
                     </div>
 
                     <div class="case-card">
-                        <h3>> AI Podcast Generator</h3>
-                        <p>AI-driven system to generate podcast snippets from audiobooks using LLM APIs.</p>
+                        <h3>> Automated Water Production Forecasting</h3>
+                        <p>Designed scalable ML pipelines to forecast water production and optimize maintenance for large utility networks, supporting real-time operational decisions.</p>
                         <div class="tags">
-                            <span class="case-tag">NLP</span>
-                            <span class="case-tag">Audio Processing</span>
-                            <span class="case-tag">LLM</span>
+                            <span class="case-tag">ML Pipelines</span>
+                            <span class="case-tag">Forecasting</span>
+                            <span class="case-tag">Big Data</span>
+                            <span class="case-tag">Azure</span>
+                            <span class="case-tag">PySpark</span>
                         </div>
                         <div class="metrics">
-                            <div class="metric">Automated content creation</div>
-                            <div class="metric">New media business models</div>
+                            <div class="metric">Improved forecasting accuracy</div>
+                            <div class="metric">Enabled proactive maintenance and reduced costs</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Smart Water Dashboards</h3>
+                        <p>Built interactive dashboards visualizing water production metrics, supporting decision-making for utility managers with live analytics.</p>
+                        <div class="tags">
+                            <span class="case-tag">Dashboards</span>
+                            <span class="case-tag">Data Visualization</span>
+                            <span class="case-tag">Python</span>
+                            <span class="case-tag">SQL</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Real-time insights for operational leadership</div>
+                            <div class="metric">Increased data-driven decision adoption</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card">
+                        <h3>> Sales Data Analytics for SMBs</h3>
+                        <p>Analyzed small business sales data to optimize marketing strategies, uncovering actionable trends and recommendations for improved campaign ROI.</p>
+                        <div class="tags">
+                            <span class="case-tag">Data Analytics</span>
+                            <span class="case-tag">Statistical Modeling</span>
+                            <span class="case-tag">Visualization</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Improved marketing ROI</div>
+                            <div class="metric">Data-driven decision support for SMBs</div>
+                        </div>
+                    </div>
+
+                    <div class="case-card" style="background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));">
+                        <h3>> Your Business Here</h3>
+                        <p>What will we build together :)?</p>
+                        <div class="tags">
+                            <span class="case-tag">Automation</span>
+                            <span class="case-tag">Optimisation</span>
+                            <span class="case-tag">Predictive Modelling</span>
+                        </div>
+                        <div class="metrics">
+                            <div class="metric">Custom Solutions</div>
+                            <div class="metric">Data-Driven Results</div>
                         </div>
                     </div>
                 </div>
@@ -601,24 +681,11 @@
         <section id="contact" class="contact-section">
             <div class="contact-header">
                 <h2>> Initialize Consultation_</h2>
-                <p class="subtitle">Let's accelerate your business with AI</p>
             </div>
             <form id="consultationForm" class="contact-form">
                 <div class="form-group">
                     <label for="email">> Email_</label>
                     <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="subject">> Subject_</label>
-                    <select id="subject" name="subject" required>
-                        <option value="">Select a subject...</option>
-                        <option value="ml">Machine Learning Solutions</option>
-                        <option value="nlp">Natural Language Processing</option>
-                        <option value="cv">Computer Vision</option>
-                        <option value="rl">Reinforcement Learning</option>
-                        <option value="data">Data Analytics & BI</option>
-                        <option value="other">Other AI Solutions</option>
-                    </select>
                 </div>
                 <div class="form-group">
                     <label for="message">> Message_</label>
@@ -629,8 +696,7 @@
         </section>
 
         <footer>
-            <p>&copy; 2024 FastAI. All rights reserved.</p>
-            <p>[ Status: AI Systems Operational | Ready for Deployment ]</p>
+            <p>&copy; 2024 Fast AI. All rights reserved.</p>
         </footer>
     </div>
 
@@ -645,7 +711,6 @@
                 e.preventDefault();
                 
                 const email = document.getElementById('email').value;
-                const subject = document.getElementById('subject').value;
                 const message = document.getElementById('message').value;
                 
                 // Extract name from email (everything before @)
@@ -660,11 +725,11 @@
                             email: email,
                             message: message,
                             time: new Date().toLocaleString(),
-                            subject: `Consultation enquiry from FastAI - ${subject}`
+                            subject: `Consultation enquiry from FastAI`
                         }
                     );
 
-                    alert('Thank you for your message! We will contact you shortly.');
+                    alert('Awesome! We\'ll be in touch 💌');
                     e.target.reset();
                 } catch (error) {
                     console.error('Error:', error);
