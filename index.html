@@ -320,30 +320,6 @@
             position: relative;
         }
 
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .case-tag {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--accent-purple);
-            border: 1px solid var(--accent-purple);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .case-tag:hover {
-            background: rgba(139, 92, 246, 0.2);
-            box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
-        }
-
         .metrics {
             margin-top: 1.5rem;
             padding-top: 1rem;
@@ -515,14 +491,6 @@
                     <div class="case-card">
                         <h3>> Automated Invoice Processing</h3>
                         <p>Implemented an end-to-end solution to extract and process invoice line items using OCR and AI, compiling editable tables and automatically flagging exceptions. This system drastically reduced manual processing time and improved claims accuracy.</p>
-                        <div class="tags">
-                            <span class="case-tag">Machine Learning</span>
-                            <span class="case-tag">OCR</span>
-                            <span class="case-tag">Python</span>
-                            <span class="case-tag">AWS</span>
-                            <span class="case-tag">LLM</span>
-                            <span class="case-tag">Automation</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Reduced invoice processing time by 60%</div>
                             <div class="metric">Improved claim accuracy by 5%</div>
@@ -532,12 +500,6 @@
                     <div class="case-card">
                         <h3>> Reducing Insurance Policy Lapse (NTU)</h3>
                         <p>Developed a predictive ML model to identify and reduce policy lapses ("not taken up") in insurance, allowing targeted interventions. The model enabled more effective retention strategies and improved policy uptake rates.</p>
-                        <div class="tags">
-                            <span class="case-tag">Machine Learning</span>
-                            <span class="case-tag">Predictive Analytics</span>
-                            <span class="case-tag">Python</span>
-                            <span class="case-tag">Databricks</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">2% reduction in policy lapse rate</div>
                             <div class="metric">Significant uplift in customer retention</div>
@@ -547,12 +509,6 @@
                     <div class="case-card">
                         <h3>> Sales Analytics Chatbot</h3>
                         <p>Built a custom LLM-powered chatbot for financial advisors and managers, enabling natural language access to client data, sales performance analytics, and policy editing through secure, conversational interfaces.</p>
-                        <div class="tags">
-                            <span class="case-tag">LLM</span>
-                            <span class="case-tag">NLP</span>
-                            <span class="case-tag">Chatbot</span>
-                            <span class="case-tag">API Integration</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Automated manual advisor queries</div>
                             <div class="metric">Provide an easy to use interface for managers</div>
@@ -562,12 +518,6 @@
                     <div class="case-card">
                         <h3>> Medical Diagnostic Modelling</h3>
                         <p>Designed and deployed ensemble models to predict psychiatric conditions such as major depressive disorder (MDD), bipolar disorder, and other mental health states using high-frequency physiological data.</p>
-                        <div class="tags">
-                            <span class="case-tag">Deep Learning</span>
-                            <span class="case-tag">Ensemble Modelling</span>
-                            <span class="case-tag">Signal Processing</span>
-                            <span class="case-tag">Python</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Achieved 75% FPR / 65% FNR in clinical benchmarks</div>
                             <div class="metric">Enabled earlier intervention for high-risk cases</div>
@@ -577,12 +527,6 @@
                     <div class="case-card">
                         <h3>> High-Frequency Signal Denoising</h3>
                         <p>Developed and released in-house algorithms for denoising EEG/EOG physiological signals, used as a preprocessing step for downstream ML models.</p>
-                        <div class="tags">
-                            <span class="case-tag">Signal Processing</span>
-                            <span class="case-tag">Electrical Engineering</span>
-                            <span class="case-tag">AWS</span>
-                            <span class="case-tag">Python</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Improved data input quality</div>
                             <div class="metric">Enabled robust high-frequency data analytics & ML</div>
@@ -592,11 +536,6 @@
                     <div class="case-card">
                         <h3>> Sleep Stage Transition & Sleep Staging</h3>
                         <p>Built machine learning models to predict sleep stage transitions (e.g., N3 → REM) and to classify sleep states from raw EEG data, aiding in sleep quality analysis.</p>
-                        <div class="tags">
-                            <span class="case-tag">Machine Learning</span>
-                            <span class="case-tag">Time Series Analysis</span>
-                            <span class="case-tag">Biomedical Data</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Enhanced accuracy in sleep quality monitoring</div>
                             <div class="metric">Valuable features for sleep health studies</div>
@@ -606,11 +545,6 @@
                     <div class="case-card">
                         <h3>> Modeling Human & Animal Cognitive Processing with RL</h3>
                         <p>Led a research project modeling human and animal decision-making using reinforcement learning (RL) to uncover the mechanisms underlying choice behavior.</p>
-                        <div class="tags">
-                            <span class="case-tag">Reinforcement Learning</span>
-                            <span class="case-tag">Cognitive Modeling</span>
-                            <span class="case-tag">Python</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Provided novel insights into cognitive behavior</div>
                             <div class="metric">Published results in scientific collaboration</div>
@@ -620,13 +554,6 @@
                     <div class="case-card">
                         <h3>> Automated Water Production Forecasting</h3>
                         <p>Designed scalable ML pipelines to forecast water production and optimize maintenance for large utility networks, supporting real-time operational decisions.</p>
-                        <div class="tags">
-                            <span class="case-tag">ML Pipelines</span>
-                            <span class="case-tag">Forecasting</span>
-                            <span class="case-tag">Big Data</span>
-                            <span class="case-tag">Azure</span>
-                            <span class="case-tag">PySpark</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Improved forecasting accuracy</div>
                             <div class="metric">Enabled proactive maintenance and reduced costs</div>
@@ -636,12 +563,6 @@
                     <div class="case-card">
                         <h3>> Smart Water Dashboards</h3>
                         <p>Built interactive dashboards visualizing water production metrics, supporting decision-making for utility managers with live analytics.</p>
-                        <div class="tags">
-                            <span class="case-tag">Dashboards</span>
-                            <span class="case-tag">Data Visualization</span>
-                            <span class="case-tag">Python</span>
-                            <span class="case-tag">SQL</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Real-time insights for operational leadership</div>
                             <div class="metric">Increased data-driven decision adoption</div>
@@ -651,11 +572,6 @@
                     <div class="case-card">
                         <h3>> Sales Data Analytics for SMBs</h3>
                         <p>Analyzed small business sales data to optimize marketing strategies, uncovering actionable trends and recommendations for improved campaign ROI.</p>
-                        <div class="tags">
-                            <span class="case-tag">Data Analytics</span>
-                            <span class="case-tag">Statistical Modeling</span>
-                            <span class="case-tag">Visualization</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Improved marketing ROI</div>
                             <div class="metric">Data-driven decision support for SMBs</div>
@@ -665,11 +581,6 @@
                     <div class="case-card" style="background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));">
                         <h3>> Your Business Here</h3>
                         <p>What will we build together :)?</p>
-                        <div class="tags">
-                            <span class="case-tag">Automation</span>
-                            <span class="case-tag">Optimisation</span>
-                            <span class="case-tag">Predictive Modelling</span>
-                        </div>
                         <div class="metrics">
                             <div class="metric">Custom Solutions</div>
                             <div class="metric">Data-Driven Results</div>
