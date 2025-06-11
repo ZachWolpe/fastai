@@ -37,8 +37,43 @@ I want to discuss if AI is right for my business...
 # Use Cases
 
 
-# Key Projects
+# Popular AI applications
 
+Some of the popular GenAI projects adopted by our customers.
+
+
+| Business Function        | Application                    | Example Use Cases                                               |
+|--------------------------|------------------------------- |-----------------------------------------------------------------|
+| Productivity &           | Document Summarization         | Summarize reports, research, meeting notes                      |
+| Internal Automation      | Automate Invoice Processing    | Extract data from invoices, compile into tables, flag exceptions|
+|                          | Knowledge Base QA/Search       | Natural language search over internal docs/databases            |
+|                          | Automated Meeting Minutes      | Real-time transcription, action item extraction                 |
+|--------------------------|------------------------------- |-----------------------------------------------------------------|
+| Customer Support         | Customer Support Chatbots      | 24/7 customer queries, FAQ handling, lead generation            |
+|                          | Automated Email Responses      | Draft/reply to customer emails automatically                    |
+|                          | Sentiment Analysis             | Analyze feedback, reviews, social media                         |
+|--------------------------|------------------------------- |-----------------------------------------------------------------|
+| Data, Research &         | Data Analysis & Reporting      | Natural language queries, auto-generated reports                |
+| Analysis                 | Knowledge Extraction           | Extract entities, trends, topics from large docs                |
+|--------------------------|------------------------------- |-----------------------------------------------------------------|
+| Product & Service        | Personalized Recommendations   | GenAI-driven product or content suggestions                     |
+| Innovation               | New Product Ideation           | Brainstorm names, feature ideas, market positioning             |
+|                          | Synthetic Data Generation      | Create realistic data for testing/training                      |
+|--------------------------|------------------------------- |-----------------------------------------------------------------|
+| Content Generation &     | Design & Visual Content        | AI-generated copy, images, videos, marketing graphics           |
+| Marketing                |                                |                                                                 |
+|--------------------------|------------------------------- |-----------------------------------------------------------------|
+| Human Resources &        | JD/CV Screening                | Generate job descriptions, screen CVs for fit                   |
+| Compliance               | Employee Onboarding            | Personalized onboarding docs, FAQ chatbots                      |
+|                          | Internal Communication         | Summarize policy updates, auto-generate newsletters             |
+|                          | Compliance Monitoring          | Analyze communications                                          |
+|--------------------------|------------------------------- |-----------------------------------------------------------------|
+
+
+
+# Notable Projects
+
+We regularly combine tradtional ML and AI.
 ---
 
 ## > Automated Invoice Processing 

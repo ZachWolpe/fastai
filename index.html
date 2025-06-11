@@ -431,6 +431,79 @@
             display: block;
             margin: 0 auto;
         }
+
+        .popular-projects {
+            margin: 6rem 0;
+            padding: 0 2rem;
+        }
+
+        .popular-projects-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .popular-projects-header h2 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects-table {
+            overflow-x: auto;
+            margin: 0 auto;
+            max-width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .projects-table table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--text-primary);
+        }
+
+        .projects-table th {
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            color: var(--accent-purple);
+            text-align: left;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .projects-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .projects-table tr:hover td {
+            background: rgba(139, 92, 246, 0.05);
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .projects-table {
+                padding: 1rem;
+            }
+            
+            .projects-table th,
+            .projects-table td {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .carousel {
+                grid-auto-columns: calc((100% / 2) - 1rem);
+            }
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
@@ -480,9 +553,100 @@
             </div>
         </section>
 
+        <section class="popular-projects">
+            <div class="popular-projects-header">
+                <h2>> Popular Projects_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">Some of the popular GenAI projects adopted by our customers.</p>
+            </div>
+            <div class="projects-table">
+                <table>
+                    <tr>
+                        <th>Business Function</th>
+                        <th>Application</th>
+                        <th>Example Use Cases</th>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Productivity & Internal Automation</td>
+                        <td>Document Summarization</td>
+                        <td>Summarize reports, research, meeting notes</td>
+                    </tr>
+                    <tr>
+                        <td>Automate Invoice Processing</td>
+                        <td>Extract data from invoices, compile into tables, flag exceptions</td>
+                    </tr>
+                    <tr>
+                        <td>Knowledge Base QA/Search</td>
+                        <td>Natural language search over internal docs/databases</td>
+                    </tr>
+                    <tr>
+                        <td>Automated Meeting Minutes</td>
+                        <td>Real-time transcription, action item extraction</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Customer Support</td>
+                        <td>Customer Support Chatbots</td>
+                        <td>24/7 customer queries, FAQ handling, lead generation</td>
+                    </tr>
+                    <tr>
+                        <td>Automated Email Responses</td>
+                        <td>Draft/reply to customer emails automatically</td>
+                    </tr>
+                    <tr>
+                        <td>Sentiment Analysis</td>
+                        <td>Analyze feedback, reviews, social media</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Data, Research & Analysis</td>
+                        <td>Data Analysis & Reporting</td>
+                        <td>Natural language queries, auto-generated reports</td>
+                    </tr>
+                    <tr>
+                        <td>Knowledge Extraction</td>
+                        <td>Extract entities, trends, topics from large docs</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">Product & Service Innovation</td>
+                        <td>Personalized Recommendations</td>
+                        <td>GenAI-driven product or content suggestions</td>
+                    </tr>
+                    <tr>
+                        <td>New Product Ideation</td>
+                        <td>Brainstorm names, feature ideas, market positioning</td>
+                    </tr>
+                    <tr>
+                        <td>Synthetic Data Generation</td>
+                        <td>Create realistic data for testing/training</td>
+                    </tr>
+                    <tr>
+                        <td>Content Generation & Marketing</td>
+                        <td>Design & Visual Content</td>
+                        <td>AI-generated copy, images, videos, marketing graphics</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Human Resources & Compliance</td>
+                        <td>JD/CV Screening</td>
+                        <td>Generate job descriptions, screen CVs for fit</td>
+                    </tr>
+                    <tr>
+                        <td>Employee Onboarding</td>
+                        <td>Personalized onboarding docs, FAQ chatbots</td>
+                    </tr>
+                    <tr>
+                        <td>Internal Communication</td>
+                        <td>Summarize policy updates, auto-generate newsletters</td>
+                    </tr>
+                    <tr>
+                        <td>Compliance Monitoring</td>
+                        <td>Analyze communications</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
         <section class="use-cases">
             <div class="use-cases-header">
-                <h2>> Key Projects_</h2>
+                <h2>> Notable Projects_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">We regularly combine traditional ML and AI.</p>
             </div>
             <div class="carousel-wrapper">
                 <div class="carousel-arrow left">&lt;</div>
