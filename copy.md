@@ -37,6 +37,14 @@ I want to discuss if AI is right for my business...
 # Use Cases
 
 
+# Falgstone products
+
+<see Flagstone>
+
+- Add flagstone projects.
+Each projects should be add the copy from fragstone directory, and contain an illustration to demonstrate the product.
+
+
 # Popular AI applications
 
 Some of the popular GenAI projects adopted by our customers.
