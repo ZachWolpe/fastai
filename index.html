@@ -393,6 +393,557 @@
             }
         }
 
+        /* ===== MOBILE OPTIMIZATION ===== */
+        @media (max-width: 768px) {
+            /* Mobile-specific container adjustments */
+            .container {
+                padding: 1rem;
+                max-width: 100%;
+            }
+
+            /* Mobile header optimizations */
+            header {
+                padding: 2rem 0;
+                margin-bottom: 2rem;
+            }
+
+            .glitch-text {
+                font-size: 3rem;
+                letter-spacing: 0.1em;
+                margin-bottom: 0.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+                padding: 0 1rem;
+            }
+
+            /* Mobile process section */
+            .process {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+                margin: 2rem 0;
+                padding: 0 1rem;
+            }
+
+            .process-step {
+                margin-bottom: 2rem;
+                width: 100%;
+            }
+
+            .step-number {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .step-content {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+
+            .step-content h2 {
+                font-size: 1.3rem;
+            }
+
+            .step-content p {
+                font-size: 0.95rem;
+            }
+
+            /* Mobile carousel optimizations */
+            .carousel {
+                grid-auto-columns: 100%;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .carousel-arrow {
+                display: none;
+            }
+
+            .case-card {
+                padding: 1.5rem;
+                margin: 0 0.5rem;
+            }
+
+            .case-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .case-card p {
+                font-size: 0.95rem;
+            }
+
+            .metric {
+                font-size: 1rem;
+            }
+
+            /* Mobile flagstone projects */
+            .flagstone-projects {
+                margin: 3rem 0;
+                padding: 0 1rem;
+            }
+
+            .flagstone-projects-header h2 {
+                font-size: 2rem;
+            }
+
+            .flagstone-card {
+                padding: 1.5rem;
+            }
+
+            .flagstone-card > div {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .flagstone-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .flagstone-content p {
+                font-size: 0.95rem;
+            }
+
+            /* Hide ASCII art on mobile */
+            .flagstone-card pre {
+                display: none;
+            }
+
+            /* Mobile popular projects */
+            .popular-projects {
+                margin: 3rem 0;
+                padding: 0 1rem;
+            }
+
+            .popular-projects-header h2 {
+                font-size: 2rem;
+            }
+
+            .projects-table {
+                padding: 1rem;
+                overflow-x: auto;
+            }
+
+            .projects-table table {
+                min-width: 600px;
+            }
+
+            .projects-table th,
+            .projects-table td {
+                padding: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            /* Mobile contact section */
+            .contact-section {
+                margin: 3rem auto;
+                padding: 1rem;
+            }
+
+            .contact-header h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 1rem;
+            }
+
+            .form-group textarea {
+                height: 120px;
+            }
+
+            /* Mobile use cases */
+            .use-cases {
+                margin: 3rem 0;
+                padding: 0 1rem;
+            }
+
+            .use-cases-header h2 {
+                font-size: 2rem;
+            }
+
+            /* Mobile CTA button */
+            .cta-button {
+                padding: 1.2rem 2rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Mobile benefits */
+            .benefit {
+                font-size: 0.95rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .applications li {
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
+            }
+
+            /* Mobile footer */
+            footer {
+                padding: 1.5rem 0;
+                margin-top: 2rem;
+            }
+        }
+
+        /* ===== SMALL MOBILE OPTIMIZATION ===== */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+
+            .process {
+                padding: 0 0.5rem;
+            }
+
+            .step-number {
+                width: 80px;
+                height: 80px;
+                font-size: 1.8rem;
+            }
+
+            .step-content {
+                padding: 0 0.5rem;
+            }
+
+            .step-content h2 {
+                font-size: 1.2rem;
+            }
+
+            .step-content p {
+                font-size: 0.9rem;
+            }
+
+            .carousel {
+                padding: 0 0.5rem;
+            }
+
+            .case-card {
+                padding: 1rem;
+                margin: 0 0.25rem;
+            }
+
+            .case-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .case-card p {
+                font-size: 0.9rem;
+            }
+
+            .flagstone-projects,
+            .popular-projects,
+            .use-cases {
+                padding: 0 0.5rem;
+            }
+
+            .flagstone-projects-header h2,
+            .popular-projects-header h2,
+            .use-cases-header h2,
+            .contact-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .flagstone-card {
+                padding: 1rem;
+            }
+
+            .flagstone-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .flagstone-content p {
+                font-size: 0.9rem;
+            }
+
+            .projects-table {
+                padding: 0.5rem;
+            }
+
+            .projects-table table {
+                min-width: 500px;
+            }
+
+            .projects-table th,
+            .projects-table td {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .contact-form {
+                padding: 1rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem;
+            }
+
+            .cta-button {
+                padding: 1rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .benefit {
+                font-size: 0.9rem;
+            }
+
+            .applications li {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== TOUCH OPTIMIZATIONS ===== */
+        @media (hover: none) and (pointer: coarse) {
+            /* Remove hover effects on touch devices */
+            .case-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .step-number:hover {
+                transform: none;
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            }
+
+            .cta-button:hover {
+                background-color: var(--accent-purple);
+                color: #000;
+                box-shadow: none;
+            }
+
+            /* Increase touch targets */
+            .cta-button {
+                min-height: 44px;
+            }
+
+            .carousel-arrow {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            /* Improve scrolling */
+            .carousel {
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        /* ===== LANDSCAPE MOBILE OPTIMIZATION ===== */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+
+            .process {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .process-step {
+                flex: 0 1 calc(50% - 1rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .step-number {
+                width: 80px;
+                height: 80px;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== ADDITIONAL MOBILE ENHANCEMENTS ===== */
+        @media (max-width: 768px) {
+            /* Mobile navigation improvements */
+            .container {
+                overflow-x: hidden;
+            }
+
+            /* Mobile typography improvements */
+            .glitch-text {
+                word-break: break-word;
+                hyphens: auto;
+            }
+
+            /* Mobile spacing improvements */
+            section {
+                margin: 2rem 0;
+            }
+
+            /* Mobile card improvements */
+            .case-card {
+                min-height: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .case-card .metrics {
+                margin-top: auto;
+            }
+
+            /* Mobile table improvements */
+            .projects-table {
+                border-radius: 8px;
+            }
+
+            .projects-table table {
+                font-size: 0.85rem;
+            }
+
+            /* Mobile form improvements */
+            .contact-form {
+                border-radius: 8px;
+            }
+
+            .form-group label {
+                font-size: 1rem;
+            }
+
+            /* Mobile button improvements */
+            .cta-button {
+                border-radius: 8px;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+
+            /* Mobile flagstone improvements */
+            .flagstone-card {
+                border-radius: 8px;
+            }
+
+            /* Mobile process improvements */
+            .step-number {
+                border-radius: 50%;
+                box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+            }
+
+            /* Mobile header improvements */
+            header {
+                background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.9) 100%);
+                backdrop-filter: blur(10px);
+            }
+
+            /* Mobile scroll improvements */
+            .carousel {
+                scroll-snap-type: x mandatory;
+                scroll-padding: 0 1rem;
+            }
+
+            .case-card {
+                scroll-snap-align: center;
+            }
+
+            /* Mobile focus improvements */
+            .form-group input:focus,
+            .form-group textarea:focus {
+                box-shadow: 0 0 0 2px var(--accent-purple);
+            }
+
+            /* Mobile loading states */
+            .cta-button:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+
+            /* Mobile accessibility */
+            .case-card:focus-within {
+                outline: 2px solid var(--accent-purple);
+                outline-offset: 2px;
+            }
+
+            /* Mobile performance */
+            .case-card,
+            .flagstone-card,
+            .projects-table {
+                will-change: transform;
+            }
+
+            /* Mobile scroll indicators */
+            .mobile-scroll-indicators {
+                margin-top: 1rem;
+            }
+
+            /* Mobile text selection */
+            ::selection {
+                background: var(--accent-purple);
+                color: var(--bg-dark);
+            }
+
+            /* Mobile tap highlights */
+            * {
+                -webkit-tap-highlight-color: rgba(139, 92, 246, 0.2);
+            }
+        }
+
+        /* ===== MOBILE DARK MODE OPTIMIZATIONS ===== */
+        @media (max-width: 768px) {
+            /* Ensure proper contrast on mobile */
+            .text-secondary {
+                color: #A1A1AA;
+            }
+
+            /* Mobile shadows */
+            .case-card,
+            .flagstone-card,
+            .projects-table {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Mobile gradients */
+            .glitch-text {
+                background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        /* ===== MOBILE ANIMATION OPTIMIZATIONS ===== */
+        @media (max-width: 768px) {
+            /* Reduce animations on mobile for better performance */
+            .case-card,
+            .flagstone-card,
+            .step-number {
+                transition: all 0.2s ease;
+            }
+
+            /* Disable complex animations on mobile */
+            .glitch-text {
+                animation: none;
+            }
+
+            /* Mobile-friendly hover states */
+            .case-card:active {
+                transform: scale(0.98);
+            }
+
+            .step-number:active {
+                transform: scale(0.95);
+            }
+        }
+
         .contact-section {
             margin: 6rem auto;
             max-width: 800px;
@@ -1096,6 +1647,152 @@
             carousel.addEventListener('mousedown', dragStart);
             carousel.addEventListener('mousemove', dragging);
             document.addEventListener('mouseup', dragStop);
+        });
+
+        // Enhanced mobile carousel with touch support
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.querySelector('.carousel');
+            const arrowBtns = document.querySelectorAll('.carousel-arrow');
+            let isDragging = false, startX, startScrollLeft, isTouch = false;
+
+            // Check if device supports touch
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+            // Get card width (handle mobile vs desktop)
+            const getCardWidth = () => {
+                const card = carousel.querySelector('.case-card');
+                return card ? card.offsetWidth + 32 : 400;
+            };
+
+            arrowBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const cardWidth = getCardWidth();
+                    carousel.scrollLeft += btn.classList.contains('left') ? -cardWidth : cardWidth;
+                });
+            });
+
+            const dragStart = (e) => {
+                isDragging = true;
+                isTouch = e.type === 'touchstart';
+                carousel.classList.add('dragging');
+                startX = isTouch ? e.touches[0].pageX : e.pageX;
+                startScrollLeft = carousel.scrollLeft;
+            };
+
+            const dragging = (e) => {
+                if (!isDragging) return;
+                e.preventDefault(); // Prevent text selection
+                const currentX = isTouch ? e.touches[0].pageX : e.pageX;
+                carousel.scrollLeft = startScrollLeft - (currentX - startX);
+            };
+
+            const dragStop = () => {
+                isDragging = false;
+                carousel.classList.remove('dragging');
+            };
+
+            // Mouse events
+            carousel.addEventListener('mousedown', dragStart);
+            carousel.addEventListener('mousemove', dragging);
+            document.addEventListener('mouseup', dragStop);
+
+            // Touch events for mobile
+            if (isTouchDevice) {
+                carousel.addEventListener('touchstart', dragStart, { passive: false });
+                carousel.addEventListener('touchmove', dragging, { passive: false });
+                carousel.addEventListener('touchend', dragStop);
+
+                // Prevent default touch behaviors that might interfere
+                carousel.addEventListener('touchstart', (e) => {
+                    if (e.target.closest('.case-card')) {
+                        e.preventDefault();
+                    }
+                }, { passive: false });
+            }
+
+            // Mobile-specific optimizations
+            if (window.innerWidth <= 768) {
+                // Add smooth scrolling for mobile
+                carousel.style.scrollBehavior = 'smooth';
+                
+                // Auto-hide arrows on mobile
+                arrowBtns.forEach(btn => {
+                    btn.style.display = 'none';
+                });
+
+                // Add mobile-friendly scroll indicators
+                const addScrollIndicators = () => {
+                    const indicators = document.createElement('div');
+                    indicators.className = 'mobile-scroll-indicators';
+                    indicators.style.cssText = `
+                        position: absolute;
+                        bottom: -20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        display: flex;
+                        gap: 8px;
+                        z-index: 10;
+                    `;
+
+                    const totalCards = carousel.children.length;
+                    for (let i = 0; i < totalCards; i++) {
+                        const dot = document.createElement('div');
+                        dot.style.cssText = `
+                            width: 8px;
+                            height: 8px;
+                            border-radius: 50%;
+                            background: var(--border-color);
+                            transition: background 0.3s ease;
+                        `;
+                        indicators.appendChild(dot);
+                    }
+
+                    carousel.parentElement.style.position = 'relative';
+                    carousel.parentElement.appendChild(indicators);
+
+                    // Update active indicator
+                    const updateIndicators = () => {
+                        const scrollPosition = carousel.scrollLeft;
+                        const cardWidth = getCardWidth();
+                        const activeIndex = Math.round(scrollPosition / cardWidth);
+                        
+                        const dots = indicators.children;
+                        for (let i = 0; i < dots.length; i++) {
+                            dots[i].style.background = i === activeIndex ? 'var(--accent-purple)' : 'var(--border-color)';
+                        }
+                    };
+
+                    carousel.addEventListener('scroll', updateIndicators);
+                    updateIndicators(); // Initial call
+                };
+
+                // Add indicators after a short delay to ensure DOM is ready
+                setTimeout(addScrollIndicators, 100);
+            }
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                // Recalculate card width on resize
+                if (carousel) {
+                    const cardWidth = getCardWidth();
+                    // Update any calculations that depend on card width
+                }
+            });
+
+            // Mobile form optimizations
+            const form = document.getElementById('consultationForm');
+            if (form && window.innerWidth <= 768) {
+                // Prevent zoom on input focus (iOS)
+                const inputs = form.querySelectorAll('input, textarea');
+                inputs.forEach(input => {
+                    input.addEventListener('focus', () => {
+                        // Add a small delay to prevent zoom
+                        setTimeout(() => {
+                            input.style.fontSize = '16px';
+                        }, 100);
+                    });
+                });
+            }
         });
     </script>
 </body>
