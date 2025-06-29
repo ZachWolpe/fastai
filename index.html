@@ -754,18 +754,15 @@
             .glitch-text {
                 font-size: 2.5rem;
             }
-
             .process {
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
             }
-
             .process-step {
                 flex: 0 1 calc(50% - 1rem);
                 margin-bottom: 1.5rem;
             }
-
             .step-number {
                 width: 80px;
                 height: 80px;
@@ -1194,6 +1191,13 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Hide elements on mobile */
+        @media (max-width: 768px) {
+            .hide-on-mobile {
+                display: none !important;
+            }
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
@@ -1327,7 +1331,7 @@
                         </div>
                     </div>
                     <div style="margin-top: 2rem; text-align: center;">
-                        <pre style="color: #FFD54F; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold; overflow-x: auto; white-space: pre; display: inline-block; text-align: left;">
+                        <pre class="hide-on-mobile" style="color: #FFD54F; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold; overflow-x: auto; white-space: pre; display: inline-block; text-align: left;">
 
                 Code & Infrastructure                    /             Managed Service
                                                          /
@@ -1443,7 +1447,7 @@
             </div>
         </section>
 
-        <section class="use-cases">
+        <section class="use-cases hide-on-mobile">
             <div class="use-cases-header">
                 <h2>> Notable Projects_</h2>
                 <p style="color: var(--text-secondary); margin-top: 1rem;">We regularly combine traditional ML and AI.</p>
