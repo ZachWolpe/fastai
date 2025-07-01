@@ -78,6 +78,98 @@
             text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
         }
 
+        .our-offering {
+            margin: 6rem 0;
+            padding: 0 2rem;
+        }
+
+        .offering-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .offering-header h2 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .offering-content {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .offering-text {
+            flex: 1;
+        }
+
+        .offering-description {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .offering-description:hover {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+        }
+
+        .offering-ascii {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ascii-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .solutions-overview {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .solutions-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .solutions-block:hover {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .offering-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .offering-header h2 {
+                font-size: 2rem;
+            }
+            
+            .offering-description {
+                padding: 1.5rem;
+            }
+        }
+
         .process {
             display: flex;
             flex-direction: row;
@@ -1219,15 +1311,22 @@
         <header>
             <h1 class="glitch-text">FastAI</h1>
             <p class="glitch-text" style="font-size: 1.5rem; margin-top: -1rem; margin-bottom: 2rem;">AI made useful.</p>
-            <p class="subtitle">> Understand how Artificial Intelligence can Accelerate <span class="terminal-green">your</span> Business_</p>
-            <p class="subtitle" style="font-size: 1rem; margin-top: 2rem;">AI is the most transformative technology of our time. We cut through the hype to identify practical, high-impact solutions tailored to your business.</p>
+            <p class="subtitle" style="font-size: 1.2rem;">> AI is the most transformative technology of our time. Unlock a dedicated team of AI & ML engineers, <span class="terminal-green">today</span>.</p>
         </header>
+
+        <section class="our-offering">
+            <div class="offering-header">
+                <h2>> Our Offering_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 1.1rem;">Unlock a dedicated, specialized team of AI & ML engineers, today.</p>
+                <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 1rem;">We help you identify & build AI & ML applications, integrating with your existing business. We offer you as much or as little control as you like.</p>
+            </div>
+        </section>
 
         <section class="process">
             <div class="process-step">
                 <div class="step-number">01</div>
                 <div class="step-content">
-                    <h2>> Identify</h2>
+                    <h2>> Discover</h2>
                     <p>We analyze your business operations to identify high-impact AI & ML use cases. Our expert team maps out opportunities where AI can drive efficiency, innovation, and growth.</p>
                 </div>
             </div>
@@ -1235,14 +1334,14 @@
                 <div class="step-number">02</div>
                 <div class="step-content">
                     <h2>> Build</h2>
-                    <p>Our skilled engineers develop custom AI solutions tailored to your specific needs. We leverage cutting-edge machine learning technologies to create powerful, scalable systems.</p>
+                    <p>Our engineers develop custom AI solutions tailored to your specific needs. We leverage cutting-edge machine learning technologies to create powerful, scalable systems.</p>
                 </div>
             </div>
             <div class="process-step">
                 <div class="step-number">03</div>
                 <div class="step-content">
                     <h2>> Deploy</h2>
-                    <p>We seamlessly integrate AI solutions into your existing infrastructure, ensuring smooth deployment and operational excellence. Our team provides comprehensive support throughout the transition.</p>
+                    <p>We seamlessly integrate AI solutions into your existing infrastructure, ensuring smooth deployment and operational excellence.</p>
                 </div>
             </div>
         </section>
