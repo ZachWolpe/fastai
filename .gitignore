@@ -3,3 +3,13 @@ node_modules/
 intro.md
 sprinting.html
 architecture-skeleton
+
+# private files
+careers/*
+projects/*
+docs/*
+discovery/*
+flagstone/*
+headers/*
+requirements/*
+artitecture/*

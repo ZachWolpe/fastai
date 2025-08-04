@@ -45,6 +45,31 @@
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 4rem;
             background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.8) 100%);
+            position: relative;
+        }
+
+        .careers-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid var(--accent-purple);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .careers-button:hover {
+            background-color: var(--accent-purple);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-purple);
         }
 
         .glitch-text {
@@ -167,6 +192,14 @@
             
             .offering-description {
                 padding: 1.5rem;
+            }
+
+            .careers-button {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
             }
         }
 
@@ -1309,6 +1342,7 @@
 <body>
     <div class="container">
         <header>
+            <a href="careers/junior-ml-engineer.html" class="careers-button">Careers</a>
             <h1 class="glitch-text">FastAI</h1>
             <p class="glitch-text" style="font-size: 1.5rem; margin-top: -1rem; margin-bottom: 2rem;">AI made useful.</p>
             <p class="subtitle" style="font-size: 1.2rem;">> AI is the most transformative technology of our time. Unlock a dedicated team of AI & ML engineers, <span class="terminal-green">today</span>.</p>
