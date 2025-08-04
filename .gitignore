@@ -5,7 +5,7 @@ sprinting.html
 architecture-skeleton
 
 # private files
-careers/*
+# careers/*
 projects/*
 docs/*
 discovery/*

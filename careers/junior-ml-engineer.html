@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior ML Engineer - FastAI Careers</title>
+    <link rel="icon" href="../flagstone/favicon.png" type="image/png">
+    <style>
+        /* Add JetBrains Mono font import at the top */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap');
+
+        :root {
+            --accent-purple: #8B5CF6;
+            --accent-blue: #3B82F6;
+            --accent-pink: #EC4899;
+            --bg-dark: #0D0D0D;
+            --bg-card: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --border-color: #2D2D2D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent-purple);
+            text-decoration: none;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-pink);
+        }
+
+        .back-link::before {
+            content: '< ';
+            color: var(--accent-purple);
+        }
+
+        .job-title {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .job-meta {
+            text-align: left;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .meta-item {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .meta-item strong {
+            color: var(--accent-purple);
+        }
+
+        .section {
+            margin: 3rem 0;
+        }
+
+        .section-header {
+            color: var(--accent-purple);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-purple);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .section-content p {
+            margin-bottom: 1rem;
+        }
+
+        .section-content strong {
+            color: var(--text-primary);
+        }
+
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .list li::before {
+            content: '•';
+            color: var(--accent-purple);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .apply-section {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 2rem;
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
+            border: 1px solid var(--accent-purple);
+            border-radius: 12px;
+        }
+
+        .apply-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-purple);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .apply-button:hover {
+            background-color: var(--accent-blue);
+            color: #fff;
+            box-shadow: 0 0 20px var(--accent-purple);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .job-title {
+                font-size: 2rem;
+            }
+
+            .section-header {
+                font-size: 1.3rem;
+            }
+
+            .section-content {
+                font-size: 0.95rem;
+            }
+
+            .apply-button {
+                width: 100%;
+                max-width: 300px;
+                padding: 1.2rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .job-title {
+                font-size: 1.8rem;
+            }
+
+            .section-header {
+                font-size: 1.2rem;
+            }
+
+            .list li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Font loading check
+        if ('fonts' in document) {
+            Promise.all([
+                document.fonts.load('800 1em JetBrains Mono'),
+            ]).then(() => {
+                document.documentElement.classList.add('fonts-loaded');
+                console.log('JetBrains Mono has loaded successfully');
+            }).catch(err => {
+                console.warn('Font loading failed:', err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">Back to FastAI</a>
+
+        <h1 class="job-title">Machine Learning Engineer Intern / Junior</h1>
+        
+        <div class="job-meta">
+            <div class="meta-item">
+                <strong>Location:</strong> Remote
+            </div>
+            <div class="meta-item">
+                <strong>Type:</strong> Internship / Entry-Level (Full-Time or Part-Time)
+            </div>
+            <div class="meta-item">
+                <strong>Team:</strong> AI Engineering
+            </div>
+        </div>
+
+        <section class="section">
+            <h2 class="section-header">About the Role</h2>
+            <div class="section-content">
+                <p>We're looking for a <strong>Machine Learning Engineer Intern</strong> who is eager to learn, build, and grow in the world of AI. This is a hands-on role where you'll work alongside experienced engineers and data scientists to solve real problems using machine learning.</p>
+                <p>We're open to alternative backgrounds. A passion for AI, ML & engineering are, however, non negotiable.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">What You'll Do</h2>
+            <div class="section-content">
+                <ul class="list">
+                    <li>Build and test AI/ML applications and pipelines</li>
+                    <li>Build modern AI applications on LLMs</li>
+                    <li>Process and prepare data for machine learning models</li>
+                    <li>Help develop ML tools and workflows</li>
+                    <li>Work on end-to-end ML projects from data to deployment</li>
+                    <li>Collaborate on research and prototyping</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">What We're Looking For</h2>
+            <div class="section-content">
+                <ul class="list">
+                    <li>Currently pursuing or recently completed a degree in CS, Engineering, Stats, Math, Physics, AI, Data Science, or related field.</li>
+                    <li>Programming experience.</li>
+                    <li>A basic understanding of core ML concepts.</li>
+                    <li>Excitement about AI, ML & engineering.</li>
+                    <li>The aspiration to be a world class engineer.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">Nice to Have (But Not Required)</h2>
+            <div class="section-content">
+                <ul class="list">
+                    <li>A demonstratable track-record of deploying ML models or building on top of LLMs.</li>
+                    <li>Exposure to (some) of Python, Git, Docker, AWS, GCP, Azure, Databricks.</li>
+                    <li>Interest in areas like NLP, computer vision, or generative AI.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">What You'll Get</h2>
+            <div class="section-content">
+                <ul class="list">
+                    <li>Mentorship from experienced ML engineers and exposure to real projects.</li>
+                    <li>A structured but flexible learning environment with regular feedback.</li>
+                    <li>Opportunities to contribute meaningfully to production systems or prototypes.</li>
+                    <li>Access to tools, training resources, and a team that's excited to help you grow.</li>
+                    <li>A chance to turn curiosity into impact — and possibly a longer-term role.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-header">How to Apply</h2>
+            <div class="section-content">
+                <p>Apply by completing this form:</p>
+            </div>
+        </section>
+
+        <div class="apply-section">
+            <a href="https://app.youform.com/forms/v5fotrbw" class="apply-button" target="_blank">Apply Here</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Fast AI. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html> 
