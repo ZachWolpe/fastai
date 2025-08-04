@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - FastAI</title>
+    <link rel="icon" href="../flagstone/favicon.png" type="image/png">
+    <style>
+        /* Add JetBrains Mono font import at the top */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap');
+
+        :root {
+            --accent-purple: #8B5CF6;
+            --accent-blue: #3B82F6;
+            --accent-pink: #EC4899;
+            --bg-dark: #0D0D0D;
+            --bg-card: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --border-color: #2D2D2D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--accent-purple);
+            text-decoration: none;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-pink);
+        }
+
+        .back-link::before {
+            content: '< ';
+            color: var(--accent-purple);
+        }
+
+        .page-title {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .intro-text {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .jobs-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .job-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+        }
+
+        .job-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+        }
+
+        .job-title {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .job-meta {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .job-meta span {
+            display: inline-block;
+            margin-right: 1.5rem;
+        }
+
+        .job-meta strong {
+            color: var(--accent-purple);
+        }
+
+        .job-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .view-job-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-purple);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .view-job-btn:hover {
+            background-color: var(--accent-blue);
+            color: #fff;
+            box-shadow: 0 0 15px var(--accent-purple);
+        }
+
+        .no-jobs {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            padding: 3rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .job-card {
+                padding: 1.5rem;
+            }
+
+            .job-title {
+                font-size: 1.3rem;
+            }
+
+            .job-meta span {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <script>
+        // Font loading check
+        if ('fonts' in document) {
+            Promise.all([
+                document.fonts.load('800 1em JetBrains Mono'),
+            ]).then(() => {
+                document.documentElement.classList.add('fonts-loaded');
+                console.log('JetBrains Mono has loaded successfully');
+            }).catch(err => {
+                console.warn('Font loading failed:', err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">Back to FastAI</a>
+
+        <h1 class="page-title">Join Our Team</h1>
+        
+        <div class="intro-text">
+            <p>We're building the future of AI and looking for passionate individuals to join our mission. Explore our open positions and find your next opportunity to make an impact.</p>
+        </div>
+
+        <div class="jobs-grid">
+            <div class="job-card">
+                <h2 class="job-title">Machine Learning Engineer Intern / Junior</h2>
+                <div class="job-meta">
+                    <span><strong>Location:</strong> Remote</span>
+                    <span><strong>Type:</strong> Internship / Entry-Level</span>
+                    <span><strong>Team:</strong> AI Engineering</span>
+                </div>
+                <div class="job-description">
+                    We're looking for a Machine Learning Engineer Intern who is eager to learn, build, and grow in the world of AI. This is a hands-on role where you'll work alongside experienced engineers and data scientists to solve real problems using machine learning.
+                </div>
+                <a href="junior-ml-engineer.html" class="view-job-btn">View Position</a>
+            </div>
+
+            <div class="job-card">
+                <h2 class="job-title">Sales Development Representative (SDR)</h2>
+                <div class="job-meta">
+                    <span><strong>Location:</strong> Remote</span>
+                    <span><strong>Type:</strong> Part-Time</span>
+                    <span><strong>Team:</strong> Sales & Business Development</span>
+                </div>
+                <div class="job-description">
+                    We're looking for a Sales Development Representative who is passionate about AI/ML technology and excels at generating qualified leads and booking meetings. This is a critical role where you'll be the first point of contact with potential clients.
+                </div>
+                <a href="SDR.html" class="view-job-btn">View Position</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Fast AI. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html> 
