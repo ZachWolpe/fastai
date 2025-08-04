@@ -64,6 +64,7 @@
             letter-spacing: 1px;
             border-radius: 8px;
             font-size: 0.9rem;
+            z-index: 10;
         }
 
         .careers-button:hover {
@@ -200,6 +201,7 @@
                 right: 1rem;
                 padding: 0.6rem 1.2rem;
                 font-size: 0.8rem;
+                z-index: 10;
             }
         }
 
@@ -528,8 +530,9 @@
 
             /* Mobile header optimizations */
             header {
-                padding: 2rem 0;
+                padding: 2rem 0 1rem 0;
                 margin-bottom: 2rem;
+                padding-top: 4rem; /* Add top padding to account for careers button */
             }
 
             .glitch-text {
@@ -738,6 +741,11 @@
                 padding: 0 0.5rem;
             }
 
+            /* Ensure careers button doesn't overlap on very small screens */
+            header {
+                padding-top: 3.5rem;
+            }
+
             .process {
                 padding: 0 0.5rem;
             }
@@ -841,6 +849,13 @@
 
         /* ===== TOUCH OPTIMIZATIONS ===== */
         @media (hover: none) and (pointer: coarse) {
+            /* Ensure careers button is properly positioned on touch devices */
+            .careers-button {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                z-index: 1000;
+            }
             /* Remove hover effects on touch devices */
             .case-card:hover {
                 transform: none;
