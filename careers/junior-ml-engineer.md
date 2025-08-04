@@ -48,9 +48,8 @@ We're open to alternative backgrounds. A passion for AI, ML & engineering are, h
 
 - Mentorship from experienced ML engineers and exposure to real projects.
 - A structured but flexible learning environment with regular feedback.
-- Opportunities to contribute meaningfully to production systems or prototypes.
-- Access to tools, training resources, and a team that’s excited to help you grow.
-- A chance to turn curiosity into impact — and possibly a longer-term role.
+- Opportunities to contribute meaningfully to production systems.
+- Career growith in AI.
 
 ---
 
