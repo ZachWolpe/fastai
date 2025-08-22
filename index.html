@@ -48,6 +48,31 @@
             position: relative;
         }
 
+        .younews-button {
+            position: absolute;
+            top: 2rem;
+            right: 10rem;
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid var(--accent-blue);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .younews-button:hover {
+            background-color: var(--accent-blue);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-blue);
+        }
+
         .careers-button {
             position: absolute;
             top: 2rem;
@@ -193,6 +218,15 @@
             
             .offering-description {
                 padding: 1.5rem;
+            }
+
+            .younews-button {
+                position: absolute;
+                top: 1rem;
+                right: 8rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+                z-index: 10;
             }
 
             .careers-button {
@@ -741,9 +775,25 @@
                 padding: 0 0.5rem;
             }
 
-            /* Ensure careers button doesn't overlap on very small screens */
+            /* Ensure buttons don't overlap on very small screens */
             header {
-                padding-top: 3.5rem;
+                padding-top: 4rem;
+            }
+
+            .younews-button {
+                position: absolute;
+                top: 0.5rem;
+                right: 6.5rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.7rem;
+            }
+
+            .careers-button {
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.7rem;
             }
 
             .process {
@@ -1357,6 +1407,7 @@
 <body>
     <div class="container">
         <header>
+            <a href="https://fastaiconsulting-net.github.io/younews/" class="younews-button">YouNews</a>
             <a href="careers/index.html" class="careers-button">Careers</a>
             <h1 class="glitch-text">FastAI</h1>
             <p class="glitch-text" style="font-size: 1.5rem; margin-top: -1rem; margin-bottom: 2rem;">AI made useful.</p>
