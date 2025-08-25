@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flagstone Products - FastAI</title>
+    <link rel="icon" href="flagstone/favicon.png" type="image/png">
+    <style>
+        /* Add JetBrains Mono font import at the top */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap');
+
+        :root {
+            --accent-purple: #8B5CF6;
+            --accent-blue: #3B82F6;
+            --accent-pink: #EC4899;
+            --bg-dark: #0D0D0D;
+            --bg-card: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --border-color: #2D2D2D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 4rem;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.8) 100%);
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            color: var(--accent-purple);
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid var(--accent-purple);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-purple);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-purple);
+        }
+
+        .glitch-text {
+            font-size: 5.5rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .flagstone-projects {
+            margin: 6rem 0;
+            padding: 0 2rem;
+        }
+
+        .flagstone-projects-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .flagstone-projects-header h2 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .flagstone-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .flagstone-card:hover {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+        }
+
+        .flagstone-content h3 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .flagstone-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .benefits {
+            margin: 2rem 0;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .benefit-icon {
+            color: var(--accent-purple);
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+
+        .applications {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .applications h4 {
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .applications ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .applications li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .applications li::before {
+            content: '>';
+            color: var(--accent-purple);
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .glitch-text {
+                font-size: 3rem;
+            }
+
+            .back-button {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .flagstone-projects {
+                padding: 0 1rem;
+            }
+
+            .flagstone-projects-header h2 {
+                font-size: 2rem;
+            }
+
+            .flagstone-card {
+                padding: 1.5rem;
+            }
+
+            .flagstone-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .flagstone-content p {
+                font-size: 0.95rem;
+            }
+
+            .benefit {
+                font-size: 0.95rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .applications li {
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-button">← Back</a>
+            <h1 class="glitch-text">Flagstone Products</h1>
+            <p class="subtitle">Our ready-to-deploy AI solutions for common business needs.</p>
+        </header>
+
+        <section class="flagstone-projects">
+            <div class="flagstone-projects-header">
+                <h2>> Flagstone Products_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">Our ready-to-deploy AI solutions for common business needs.</p>
+            </div>
+            <div class="flagstone-card">
+                <div style="display: flex; gap: 2rem;">
+                    <div class="flagstone-content" style="flex: 1;">
+                        <h3>> SmartDocs_</h3>
+                        <p>SmartDocs is an automated way to process documents. SmartDocs allows you to analyze and extract key data from large documents.</p>
+                        <div class="benefits">
+                            <div class="benefit">
+                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-text">Speed: reduce human processing dramatically</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-text">Accuracy: reduce error prone, tedious manual processes</span>
+                            </div>
+                            <div class="benefit">
+                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-text">Data: convert a once tedious task into a data generating process</span>
+                            </div>
+                        </div>
+                        <div class="applications">
+                            <h4>> Common Applications_</h4>
+                            <ul>
+                                <li>Processing invoices</li>
+                                <li>Digitizing PDFs/Images (OCR)</li>
+                                <li>Automate handling client uploaded or internal docs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                        <pre style="color: #FFD54F; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold;">
+      +-----------------------------+
+      |       1. Upload Document    |
+      +--------------+--------------+
+                     |
+                     |
+                     v
+      +-----------------------------+
+      |     2. Extract Key Data     | ----+
+      +-----------------------------+     |
+                                          |
+                                          v
+      +-----------------------------+     |
+      |    3. Return Useful Data    | <---+
+      +-----------------------------+
+                     ^
+                     |
+                     |
+      +--------------+--------------+
+      |      4. Store Extraction    |
+      +-----------------------------+</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Fast AI. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

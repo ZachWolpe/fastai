@@ -129,6 +129,192 @@
             text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
         }
 
+        .automation-section {
+            margin: 6rem 0;
+            padding: 0 2rem;
+        }
+
+        .automation-workflow {
+            margin: 4rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .workflow-list {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .workflow-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 0;
+        }
+
+        .workflow-number {
+            color: var(--accent-purple);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            min-width: 30px;
+            display: inline-block;
+        }
+
+        .workflow-content {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .workflow-content strong {
+            color: var(--text-primary);
+        }
+
+        .automation-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .automation-header h2 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .automation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .automation-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .automation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(139, 92, 246, 0.05),
+                rgba(236, 72, 153, 0.05)
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .automation-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1);
+        }
+
+        .automation-card:hover::before {
+            opacity: 1;
+        }
+
+        .automation-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .automation-card h3 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .automation-card ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+        }
+
+        .automation-card li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .automation-card li::before {
+            content: '>';
+            color: var(--accent-purple);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .automation-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+            
+            .automation-header h2 {
+                font-size: 2rem;
+            }
+            
+            .automation-card {
+                padding: 1.5rem;
+            }
+
+            .automation-icon {
+                font-size: 2rem;
+            }
+
+            .automation-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .automation-card li {
+                font-size: 0.9rem;
+            }
+
+            .workflow-list {
+                padding: 0 1rem;
+            }
+
+            .workflow-item {
+                margin-bottom: 1.2rem;
+            }
+
+            .workflow-number {
+                font-size: 1.1rem;
+                margin-right: 0.8rem;
+            }
+
+            .workflow-content {
+                font-size: 0.95rem;
+            }
+        }
+
         .our-offering {
             margin: 6rem 0;
             padding: 0 2rem;
@@ -1206,72 +1392,7 @@
             margin: 0 auto;
         }
 
-        .popular-projects {
-            margin: 6rem 0;
-            padding: 0 2rem;
-        }
 
-        .popular-projects-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .popular-projects-header h2 {
-            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .projects-table {
-            overflow-x: auto;
-            margin: 0 auto;
-            max-width: 100%;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-        }
-
-        .projects-table table {
-            width: 100%;
-            border-collapse: collapse;
-            color: var(--text-primary);
-        }
-
-        .projects-table th {
-            background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));
-            color: var(--accent-purple);
-            text-align: left;
-            padding: 1rem;
-            font-size: 1.1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .projects-table td {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-secondary);
-        }
-
-        .projects-table tr:hover td {
-            background: rgba(139, 92, 246, 0.05);
-            color: var(--text-primary);
-        }
-
-        @media (max-width: 768px) {
-            .projects-table {
-                padding: 1rem;
-            }
-            
-            .projects-table th,
-            .projects-table td {
-                padding: 0.75rem;
-                font-size: 0.9rem;
-            }
-        }
 
         @media (max-width: 1200px) {
             .carousel {
@@ -1279,108 +1400,7 @@
             }
         }
 
-        .flagstone-projects {
-            margin: 6rem 0;
-            padding: 0 2rem;
-        }
 
-        .flagstone-projects-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .flagstone-projects-header h2 {
-            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .flagstone-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-        }
-
-        .flagstone-card:hover {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
-        }
-
-        .flagstone-content h3 {
-            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .flagstone-content p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .benefits {
-            margin: 2rem 0;
-        }
-
-        .benefit {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .benefit-icon {
-            color: var(--accent-purple);
-            margin-right: 1rem;
-            font-weight: bold;
-        }
-
-        .applications {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .applications h4 {
-            color: var(--accent-purple);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .applications ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .applications li {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .applications li::before {
-            content: '>';
-            color: var(--accent-purple);
-            position: absolute;
-            left: 0;
-        }
-
-        @media (max-width: 768px) {
-            .flagstone-card {
-                padding: 1.5rem;
-            }
-        }
 
         /* Hide elements on mobile */
         @media (max-width: 768px) {
@@ -1410,13 +1430,85 @@
             <a href="https://fastaiconsulting-net.github.io/younews/" class="younews-button">YouNews</a>
             <a href="careers/index.html" class="careers-button">Careers</a>
             <h1 class="glitch-text">FastAI</h1>
-            <p class="glitch-text" style="font-size: 1.5rem; margin-top: -1rem; margin-bottom: 2rem;">AI made useful.</p>
-            <p class="subtitle" style="font-size: 1.2rem;">> AI is the most transformative technology of our time. Unlock a dedicated team of AI & ML engineers, <span class="terminal-green">today</span>.</p>
+            <p class="glitch-text" style="font-size: 1.5rem; margin-top: -1rem; margin-bottom: 2rem;">AI made useful.</p>            
+            <p class="subtitle" style="font-size: 1.3rem; margin-top: 1.5rem; color: var(--text-secondary); font-style: italic; font-weight: 300;">AI is the most transformative technology of our time. Automate business operational processes,  & unlock a dedicated team of AI & ML engineers, <span class="terminal-green">today</span>.</p>
         </header>
+
+        <section class="automation-section">
+            <div class="automation-header">
+                <h2>> Automation_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 1.1rem;">If your business has <span class="terminal-green">repetitive</span> tasks, <span class="terminal-green">manual decision-making</span>, or <span class="terminal-green">data-heavy processes</span>, we can automate, accelerate, and scale them with AI.</p>
+            </div>
+            
+            <div class="automation-workflow">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-purple); font-size: 1.5rem;">Our Workflow 🔄</h3>
+                <div class="workflow-list">
+                    <div class="workflow-item">
+                        <span class="workflow-number">1.</span>
+                        <div class="workflow-content">
+                            <strong>Discovery & Analysis</strong> - We meet to understand your business operations, identify bottlenecks, and map out your most time-consuming and costly processes.
+                        </div>
+                    </div>
+                    <div class="workflow-item">
+                        <span class="workflow-number">2.</span>
+                        <div class="workflow-content">
+                            <strong>Opportunity Assessment</strong> - We prepare a comprehensive analysis document (at no cost) outlining specific AI/ML applications tailored to your business. Each recommendation includes measurable ROI projections and implementation timelines.
+                        </div>
+                    </div>
+                    <div class="workflow-item">
+                        <span class="workflow-number">3.</span>
+                        <div class="workflow-content">
+                            <strong>Strategic Planning</strong> - If you're interested in moving forward, we work collaboratively to prioritize projects, define success metrics, and create a phased implementation roadmap.
+                        </div>
+                    </div>
+                    <div class="workflow-item">
+                        <span class="workflow-number">4.</span>
+                        <div class="workflow-content">
+                            <strong>Build & Deploy</strong> - We develop, test, and deploy your automation solutions!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="automation-grid">
+                <div class="automation-card">
+                    <div class="automation-icon">🔄</div>
+                    <h3>> Operations & Processes_</h3>
+                    <ul>
+                        <li>Data entry & validation (forms, invoices, spreadsheets)</li>
+                        <li>Document processing (contracts, PDFs, scans, compliance docs)</li>
+                        <li>Report generation (dashboards, summaries, insights)</li>
+                        <li>Workflow automation (trigger-based actions across systems)</li>
+                    </ul>
+                </div>
+                
+                <div class="automation-card">
+                    <div class="automation-icon">🛒</div>
+                    <h3>> Sales & Customer Engagement_</h3>
+                    <ul>
+                        <li>Lead qualification (auto-sorting prospects, scoring opportunities)</li>
+                        <li>Customer support (chatbots, ticket triage, knowledge base search)</li>
+                        <li>Personalized outreach (email, LinkedIn, proposals)</li>
+                        <li>Order & inventory management (alerts, reconciliations)</li>
+                    </ul>
+                </div>
+                
+                <div class="automation-card">
+                    <div class="automation-icon">📊</div>
+                    <h3>> Intelligence & Insights_</h3>
+                    <ul>
+                        <li>Forecasting & prediction (demand, churn, financial models)</li>
+                        <li>Sentiment & feedback analysis (reviews, surveys, social media)</li>
+                        <li>Market & competitor monitoring (real-time scanning)</li>
+                        <li>Anomaly detection (fraud, errors, unusual trends)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
         <section class="our-offering">
             <div class="offering-header">
-                <h2>> Our Offering_</h2>
+                <h2>> AI Consulting_</h2>
                 <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 1.1rem;">Unlock a dedicated, specialized team of AI & ML engineers, today.</p>
                 <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 1rem;">We help you identify & build AI & ML applications, integrating with your existing business. We offer you as much or as little control as you like.</p>
             </div>
@@ -1448,67 +1540,7 @@
 
         <section class="flagstone-projects">
             <div class="flagstone-projects-header">
-                <h2>> Flagstone Products_</h2>
-                <p style="color: var(--text-secondary); margin-top: 1rem;">Our ready-to-deploy AI solutions for common business needs.</p>
-            </div>
-            <div class="flagstone-card">
-                <div style="display: flex; gap: 2rem;">
-                    <div class="flagstone-content" style="flex: 1;">
-                        <h3>> SmartDocs_</h3>
-                        <p>SmartDocs is an automated way to process documents. SmartDocs allows you to analyze and extract key data from large documents.</p>
-                        <div class="benefits">
-                            <div class="benefit">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Speed: reduce human processing dramatically</span>
-                            </div>
-                            <div class="benefit">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Accuracy: reduce error prone, tedious manual processes</span>
-                            </div>
-                            <div class="benefit">
-                                <span class="benefit-icon">✓</span>
-                                <span class="benefit-text">Data: convert a once tedious task into a data generating process</span>
-                            </div>
-                        </div>
-                        <div class="applications">
-                            <h4>> Common Applications_</h4>
-                            <ul>
-                                <li>Processing invoices</li>
-                                <li>Digitizing PDFs/Images (OCR)</li>
-                                <li>Automate handling client uploaded or internal docs</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <pre style="color: #FFD54F; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold;">
-      +-----------------------------+
-      |       1. Upload Document    |
-      +--------------+--------------+
-                     |
-                     |
-                     v
-      +-----------------------------+
-      |     2. Extract Key Data     | ----+
-      +-----------------------------+     |
-                                          |
-                                          v
-      +-----------------------------+     |
-      |    3. Return Useful Data    | <---+
-      +-----------------------------+
-                     ^
-                     |
-                     |
-      +--------------+--------------+
-      |      4. Store Extraction    |
-      +-----------------------------+</pre>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="flagstone-projects">
-            <div class="flagstone-projects-header">
-                <h2>> Deployment Architecture_</h2>
+                <h2 style="background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; margin-bottom: 1rem; text-align: center;">> Deployment Architecture_</h2>
                 <p style="color: var(--text-secondary); margin-top: 1rem;">Our workflow is malleable to whatever suits you. We offer both fully managed services & complete software integrations.</p>
             </div>
             <div class="flagstone-card">
@@ -1553,96 +1585,6 @@
 </pre>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section class="popular-projects">
-            <div class="popular-projects-header">
-                <h2>> Popular Projects_</h2>
-                <p style="color: var(--text-secondary); margin-top: 1rem;">Some of the popular GenAI projects adopted by our customers.</p>
-            </div>
-            <div class="projects-table">
-                <table>
-                    <tr>
-                        <th>Business Function</th>
-                        <th>Application</th>
-                        <th>Example Use Cases</th>
-                    </tr>
-                    <tr>
-                        <td rowspan="4">Productivity & Internal Automation</td>
-                        <td>Document Summarization</td>
-                        <td>Summarize reports, research, meeting notes</td>
-                    </tr>
-                    <tr>
-                        <td>Automate Invoice Processing</td>
-                        <td>Extract data from invoices, compile into tables, flag exceptions</td>
-                    </tr>
-                    <tr>
-                        <td>Knowledge Base QA/Search</td>
-                        <td>Natural language search over internal docs/databases</td>
-                    </tr>
-                    <tr>
-                        <td>Automated Meeting Minutes</td>
-                        <td>Real-time transcription, action item extraction</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3">Customer Support</td>
-                        <td>Customer Support Chatbots</td>
-                        <td>24/7 customer queries, FAQ handling, lead generation</td>
-                    </tr>
-                    <tr>
-                        <td>Automated Email Responses</td>
-                        <td>Draft/reply to customer emails automatically</td>
-                    </tr>
-                    <tr>
-                        <td>Sentiment Analysis</td>
-                        <td>Analyze feedback, reviews, social media</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="2">Data, Research & Analysis</td>
-                        <td>Data Analysis & Reporting</td>
-                        <td>Natural language queries, auto-generated reports</td>
-                    </tr>
-                    <tr>
-                        <td>Knowledge Extraction</td>
-                        <td>Extract entities, trends, topics from large docs</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="3">Product & Service Innovation</td>
-                        <td>Personalized Recommendations</td>
-                        <td>GenAI-driven product or content suggestions</td>
-                    </tr>
-                    <tr>
-                        <td>New Product Ideation</td>
-                        <td>Brainstorm names, feature ideas, market positioning</td>
-                    </tr>
-                    <tr>
-                        <td>Synthetic Data Generation</td>
-                        <td>Create realistic data for testing/training</td>
-                    </tr>
-                    <tr>
-                        <td>Content Generation & Marketing</td>
-                        <td>Design & Visual Content</td>
-                        <td>AI-generated copy, images, videos, marketing graphics</td>
-                    </tr>
-                    <tr>
-                        <td rowspan="4">Human Resources & Compliance</td>
-                        <td>JD/CV Screening</td>
-                        <td>Generate job descriptions, screen CVs for fit</td>
-                    </tr>
-                    <tr>
-                        <td>Employee Onboarding</td>
-                        <td>Personalized onboarding docs, FAQ chatbots</td>
-                    </tr>
-                    <tr>
-                        <td>Internal Communication</td>
-                        <td>Summarize policy updates, auto-generate newsletters</td>
-                    </tr>
-                    <tr>
-                        <td>Compliance Monitoring</td>
-                        <td>Analyze communications</td>
-                    </tr>
-                </table>
             </div>
         </section>
 
@@ -1753,6 +1695,16 @@
                             <div class="metric">Data-Driven Results</div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Looking for more inspiration?</p>
+                    <a href="popular-projects.html" style="display: inline-block; padding: 1rem 2rem; background-color: var(--accent-purple); color: #000; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;">See Popular Projects</a>
+                </div>
+                <div style="text-align: center;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Ready-to-deploy solutions?</p>
+                    <a href="flagstone-projects.html" style="display: inline-block; padding: 1rem 2rem; background-color: var(--accent-blue); color: #000; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;">View Flagstone Products</a>
                 </div>
             </div>
         </section>
