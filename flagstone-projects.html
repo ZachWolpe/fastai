@@ -196,13 +196,28 @@
             border-top: 1px solid var(--border-color);
         }
 
+        /* ===== MOBILE OPTIMIZATION ===== */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
+                max-width: 100%;
+            }
+
+            header {
+                padding: 2rem 0 1rem 0;
+                margin-bottom: 2rem;
             }
 
             .glitch-text {
                 font-size: 3rem;
+                letter-spacing: 0.1em;
+                margin-bottom: 0.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+                padding: 0 1rem;
             }
 
             .back-button {
@@ -214,6 +229,7 @@
             }
 
             .flagstone-projects {
+                margin: 3rem 0;
                 padding: 0 1rem;
             }
 
@@ -223,6 +239,11 @@
 
             .flagstone-card {
                 padding: 1.5rem;
+            }
+
+            .flagstone-card > div {
+                flex-direction: column;
+                gap: 1.5rem;
             }
 
             .flagstone-content h3 {
@@ -241,6 +262,74 @@
             .applications li {
                 font-size: 0.95rem;
                 margin-bottom: 0.4rem;
+            }
+
+            /* Hide diagrams on mobile */
+            .flagstone-card pre {
+                display: none;
+            }
+        }
+
+        /* ===== SMALL MOBILE OPTIMIZATION ===== */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+
+            .back-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.7rem;
+            }
+
+            .flagstone-projects {
+                padding: 0 0.5rem;
+            }
+
+            .flagstone-projects-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .flagstone-card {
+                padding: 1rem;
+            }
+
+            .flagstone-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .flagstone-content p {
+                font-size: 0.9rem;
+            }
+
+            .benefit {
+                font-size: 0.9rem;
+            }
+
+            .applications li {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== TOUCH OPTIMIZATIONS ===== */
+        @media (hover: none) and (pointer: coarse) {
+            /* Remove hover effects on touch devices */
+            .flagstone-card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            /* Increase touch targets */
+            .back-button {
+                min-height: 44px;
             }
         }
     </style>
