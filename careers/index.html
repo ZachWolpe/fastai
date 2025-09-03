@@ -39,22 +39,29 @@
             padding: 2rem;
         }
 
-        .back-link {
-            display: inline-block;
+        .back-button {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
             color: var(--accent-purple);
             text-decoration: none;
-            margin-bottom: 3rem;
-            font-size: 0.9rem;
+            font-weight: bold;
+            border: 2px solid var(--accent-purple);
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            z-index: 10;
         }
 
-        .back-link:hover {
-            color: var(--accent-pink);
-        }
-
-        .back-link::before {
-            content: '< ';
-            color: var(--accent-purple);
+        .back-button:hover {
+            background-color: var(--accent-purple);
+            color: #000;
+            box-shadow: 0 0 20px var(--accent-purple);
         }
 
         .page-title {
@@ -221,9 +228,9 @@
 </head>
 <body>
     <div class="container">
-        <a href="../index.html" class="back-link">Back to FastAI</a>
-
-        <h1 class="page-title">Join Our Team</h1>
+        <header>
+            <a href="../index.html" class="back-button">← Back</a>
+            <h1 class="page-title">Join Our Team</h1>
         
         <div class="intro-text">
             <p>We're building the future of AI and looking for passionate individuals to join our mission. Explore our open positions and find your next opportunity to make an impact.</p>
