@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EngageAI - Automated Content Creation | FastAI</title>
+    <link rel="icon" href="../flagstone/favicon.png" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap');
+
+        :root {
+            --accent-purple: #8B5CF6;
+            --accent-blue: #3B82F6;
+            --accent-pink: #EC4899;
+            --bg-dark: #0D0D0D;
+            --bg-card: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --border-color: #2D2D2D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 4rem;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.8) 100%);
+            position: relative;
+        }
+
+        .glitch-text {
+            font-size: 4rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .terminal-green {
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+        }
+
+        .section {
+            margin: 4rem 0;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.1);
+        }
+
+        .feature-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: var(--accent-purple);
+        }
+
+        .feature-title {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .feature-content {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-purple);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: var(--accent-purple);
+            margin: 1rem 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .price-details {
+            color: var(--text-secondary);
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .benefits-list li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            color: var(--accent-purple);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .note-box {
+            background: rgba(236, 72, 153, 0.05);
+            border-left: 3px solid var(--accent-pink);
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 1400px) {
+            .feature-content > div {
+                grid-template-columns: repeat(3, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .feature-content > div {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 0 1rem;
+            }
+
+            .feature-title {
+                font-size: 1.5rem;
+            }
+
+            .feature-content > div {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2 class="glitch-text">EngageAI_</h2>
+            <p class="subtitle">🚀 Automated Content Creation & Distribution</p>
+            <p class="subtitle" style="margin-top: 1rem;">Transform your client engagement with AI-powered content generation</p>
+        </header>
+
+        <section class="section">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Standard Plan -->
+                <div class="pricing-card" style="margin-top: 0;">
+                    <h3 class="feature-title">Standard Plan</h3>
+                    <div class="price">$100/month</div>
+                    <div class="price-details">Essential Content Automation</div>
+                    <ul class="benefits-list">
+                        <li>500 email clients included</li>
+                        <li>1 social media content piece per day</li>
+                        <li>1 blog post per day</li>
+                        <li>1 AI-generated image per day</li>
+                        <li>1 newsletter per day</li>
+                        <li>1 basic text-to-speech conversion per day</li>
+                        <li>Multi-platform distribution</li>
+                    </ul>
+                    <div class="note-box">
+                        <strong>Email client pricing:</strong> First 500 included (1,000 in Premium), then $10 per additional 500 users
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="pricing-card" style="margin-top: 0; border-color: var(--accent-pink);">
+                    <h3 class="feature-title">Premium Plan</h3>
+                    <div class="price">$150/month</div>
+                    <div class="price-details">Enhanced Media Suite</div>
+                    <ul class="benefits-list">
+                        <li>1,000 email clients included</li>
+                        <li>Multi-language content generation</li>
+                        <li>Premium, human quality, text-to-speech voices</li>
+                        <li>1 AI video creation per day</li>
+                        <li>Priority support</li>
+                        <li>All Standard Plan features</li>
+                    </ul>
+                    <div class="note-box" style="border-color: var(--accent-pink);">
+                        <strong>Premium features:</strong> Multi-language support, professional voice selection & AI video generation
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="margin-top: 2rem;">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">What's Included</div>
+                </div>
+                <div class="feature-content">
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem;">
+                        <div>
+                            <h4 style="color: var(--accent-purple); margin-bottom: 1rem;">📧 Email & Newsletters</h4>
+                            <ul class="benefits-list">
+                                <li>Daily automated newsletters</li>
+                                <li>Professional content</li>
+                                <li>500 clients included</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--accent-purple); margin-bottom: 1rem;">📱 Social Media</h4>
+                            <ul class="benefits-list">
+                                <li>Daily content creation</li>
+                                <li>Platform-optimized formats</li>
+                                <li>Optional API integration</li>
+                            </ul>
+                            <div class="note-box" style="margin-top: 1rem; font-size: 0.9rem;">
+                                <strong>Supported APIs:</strong> Meta (FB/IG), LinkedIn, TikTok
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--accent-purple); margin-bottom: 1rem;">📝 Blog Content</h4>
+                            <ul class="benefits-list">
+                                <li>Daily blog generation</li>
+                                <li>SEO optimization</li>
+                                <li>Custom formatting</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--accent-purple); margin-bottom: 1rem;">🎨 Image Generation</h4>
+                            <ul class="benefits-list">
+                                <li>Daily AI images</li>
+                                <li>Custom style matching</li>
+                                <li>Brand-aligned visuals</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--accent-purple); margin-bottom: 1rem;">🎙️ Speech & Video</h4>
+                            <ul class="benefits-list">
+                                <li>Basic text-to-speech</li>
+                                <li>Premium voices available</li>
+                                <li>AI video creation (Premium)</li>
+                            </ul>
+                            <div class="note-box" style="margin-top: 1rem; font-size: 0.9rem;">
+                                <strong>Premium upgrades:</strong> +$25/mo each for premium voices or video
+                            </div>
+                        </div>
+                    </div>
+                    <div class="note-box" style="margin-top: 2rem;">
+                        <strong>Note:</strong> Direct posting available through optional API integration with Meta, LinkedIn, and TikTok business accounts
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="margin-top: 2rem;">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🔧</div>
+                    <div class="feature-title">Quick Start</div>
+                </div>
+                <div class="feature-content">
+                    <div style="margin-bottom: 1.5rem;">
+                        <p style="color: var(--text-secondary);">We'll work together to perfect your automated content strategy:</p>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                        <div>
+                            <h4 style="color: var(--accent-purple); margin-bottom: 1rem;">🎨 Design & Branding</h4>
+                            <ul class="benefits-list">
+                                <li>Customize design templates</li>
+                                <li>Define brand voice & tone</li>
+                                <li>Set visual guidelines</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--accent-purple); margin-bottom: 1rem;">📋 Content Strategy</h4>
+                            <ul class="benefits-list">
+                                <li>Choose content themes</li>
+                                <li>Set content calendar</li>
+                                <li>Customize tone & style</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--accent-purple); margin-bottom: 1rem;">⚙️ Technical Setup</h4>
+                            <ul class="benefits-list">
+                                <li>Configure business accounts</li>
+                                <li>Set up API access</li>
+                                <li>Test & refine outputs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Fast AI. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
