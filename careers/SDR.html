@@ -18,6 +18,43 @@
             --text-primary: #FFFFFF;
             --text-secondary: #9CA3AF;
             --border-color: #2D2D2D;
+            --bg-light: #FFFFFF;
+            --text-dark: #000000;
+            --border-light: #E5E7EB;
+            --diagram-light-yellow: #FBBF24;
+            --text-highlight: #FFFFFF;
+            --card-background: var(--bg-card);
+            --card-border: var(--border-color);
+            --button-text: var(--bg-dark);
+            --button-text-hover: var(--bg-light);
+            --metric-text: var(--accent-blue);
+            --page-background: var(--bg-dark);
+            --page-text: var(--text-primary);
+            --input-background: var(--bg-card);
+            --input-border: var(--border-color);
+            --header-chip-background: rgba(13, 13, 13, 0.65);
+            --header-chip-border: rgba(255, 255, 255, 0.05);
+        }
+
+        body.light-mode {
+            --bg-card: #F3F4F6;
+            --text-primary: #0F172A;
+            --text-secondary: #374151;
+            --border-color: var(--border-light);
+            --text-highlight: #111827;
+            --card-background: #FFFFFF;
+            --card-border: var(--border-light);
+            --button-text: #FFFFFF;
+            --button-text-hover: #1F2937;
+            --metric-text: #2D3A8C;
+            --page-background: var(--bg-light);
+            --page-text: var(--text-dark);
+            --text-dark: #0B1120;
+            --input-background: #FFFFFF;
+            --input-border: var(--border-light);
+            --diagram-light-yellow: #B45309;
+            --header-chip-background: rgba(255, 255, 255, 0.85);
+            --header-chip-border: rgba(15, 23, 42, 0.12);
         }
 
         * {
@@ -227,6 +264,56 @@
                 console.warn('Font loading failed:', err);
             });
         }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bodyEl = document.body;
+            const toggleButton = document.querySelector('.toggle-mode-button');
+            const emojiSpan = document.querySelector('.toggle-mode-button-emoji');
+            const THEME_KEY = 'fastai-theme';
+
+            if (!toggleButton || !emojiSpan) {
+                return;
+            }
+
+            function updateToggleEmoji() {
+                if (bodyEl.classList.contains('light-mode')) {
+                    emojiSpan.textContent = '☀️';
+                } else {
+                    emojiSpan.textContent = '🌙';
+                }
+            }
+
+            const applyTheme = (mode) => {
+                if (mode === 'light') {
+                    bodyEl.classList.add('light-mode');
+                } else {
+                    bodyEl.classList.remove('light-mode');
+                }
+                updateToggleEmoji();
+            };
+
+            const storedTheme = localStorage.getItem(THEME_KEY);
+            if (storedTheme) {
+                applyTheme(storedTheme);
+            } else {
+                applyTheme(bodyEl.classList.contains('light-mode') ? 'light' : 'dark');
+            }
+
+            toggleButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                bodyEl.classList.toggle('light-mode');
+                const mode = bodyEl.classList.contains('light-mode') ? 'light' : 'dark';
+                localStorage.setItem(THEME_KEY, mode);
+                updateToggleEmoji();
+            });
+
+            document.addEventListener('storage', (e) => {
+                if (e.key === THEME_KEY && e.newValue) {
+                    applyTheme(e.newValue);
+                }
+            });
+        });
     </script>
 </head>
 <body>

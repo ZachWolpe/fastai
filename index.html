@@ -18,6 +18,51 @@
             --text-primary: #FFFFFF;
             --text-secondary: #9CA3AF;
             --border-color: #2D2D2D;
+            --bg-light: #FFFFFF;
+            --text-dark: #000000;
+            --border-light: #E5E7EB;
+            --diagram-light-yellow: #FBBF24;
+            --text-highlight: #FFFFFF;
+            --card-background: var(--bg-card);
+            --card-border: var(--border-color);
+            --button-text: var(--bg-dark);
+            --button-text-hover: var(--bg-light);
+            --metric-text: var(--accent-blue);
+            --page-background: var(--bg-dark);
+            --page-text: var(--text-primary);
+            --input-background: var(--bg-card);
+            --input-border: var(--border-color);
+            --header-gradient-end: rgba(17, 24, 39, 0.8);
+            --header-gradient-end-strong: rgba(17, 24, 39, 0.9);
+            --header-chip-background: rgba(13, 13, 13, 0.65);
+            --header-chip-border: rgba(255, 255, 255, 0.05);
+            --terminal-green-text: #00ff00;
+            --terminal-green-glow: rgba(0, 255, 0, 0.7);
+        }
+
+        body.light-mode {
+            --bg-card: #F3F4F6;
+            --text-primary: #0F172A;
+            --text-secondary: #374151;
+            --border-color: var(--border-light);
+            --text-highlight: #111827;
+            --card-background: #FFFFFF;
+            --card-border: var(--border-light);
+            --button-text: #FFFFFF;
+            --button-text-hover: #1F2937;
+            --metric-text: #2D3A8C;
+            --page-background: var(--bg-light);
+            --page-text: var(--text-dark);
+            --text-dark: #0B1120;
+            --input-background: #FFFFFF;
+            --input-border: var(--border-light);
+            --diagram-light-yellow: #B45309;
+            --header-gradient-end: rgba(255, 255, 255, 0.8);
+            --header-gradient-end-strong: rgba(255, 255, 255, 0.9);
+            --header-chip-background: rgba(255, 255, 255, 0.85);
+            --header-chip-border: rgba(15, 23, 42, 0.12);
+            --terminal-green-text: #166534;
+            --terminal-green-glow: rgba(34, 197, 94, 0.6);
         }
 
         * {
@@ -28,9 +73,21 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
+            background-color: var(--page-background);
+            color: var(--page-text);
             line-height: 1.6;
+        }
+
+        body.light-mode .careers-button,
+        body.light-mode .younews-button {
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+        }
+
+        body.light-mode .careers-button:hover,
+        body.light-mode .younews-button:hover {
+            background-color: var(--accent-blue);
+            color: var(--bg-light);
         }
 
         .container {
@@ -41,61 +98,78 @@
 
         header {
             text-align: center;
-            padding: 4rem 0;
+            padding: 6rem 0 4rem;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 4rem;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.8) 100%);
+            background: var(--page-background);
             position: relative;
         }
 
-        .younews-button {
-            position: absolute;
-            top: 2rem;
-            right: 10rem;
-            padding: 0.8rem 1.5rem;
+        .header-bar {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--header-chip-border);
+            background: var(--header-chip-background);
+            backdrop-filter: blur(12px);
+            z-index: 1100;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+        }
+
+        .header-bar .toggle-mode-button {
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-background);
+            border: 2px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .header-link {
+            padding: 0.75rem 1.5rem;
             background-color: transparent;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .products-link {
+            border-color: var(--accent-blue);
             color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid var(--accent-blue);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            z-index: 10;
         }
 
-        .younews-button:hover {
+        .products-link:hover {
             background-color: var(--accent-blue);
-            color: #000;
-            box-shadow: 0 0 20px var(--accent-blue);
+            color: var(--page-text);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
 
-        .careers-button {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            padding: 0.8rem 1.5rem;
-            background-color: transparent;
+        .careers-link {
+            border-color: var(--accent-purple);
             color: var(--accent-purple);
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid var(--accent-purple);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            z-index: 10;
         }
 
-        .careers-button:hover {
+        .careers-link:hover {
             background-color: var(--accent-purple);
-            color: #000;
-            box-shadow: 0 0 20px var(--accent-purple);
+            color: var(--page-text);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
 
         .glitch-text {
@@ -124,9 +198,9 @@
         }
 
         .terminal-green {
-            color: #00ff00;
+            color: var(--terminal-green-text);
             font-family: 'Courier New', Courier, monospace;
-            text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+            text-shadow: 0 0 6px var(--terminal-green-glow);
         }
 
         .automation-section {
@@ -171,7 +245,7 @@
         }
 
         .workflow-content strong {
-            color: var(--text-primary);
+            color: var(--text-highlight);
         }
 
         .automation-header {
@@ -197,8 +271,8 @@
         }
 
         .automation-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--card-background);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s ease;
@@ -347,8 +421,8 @@
         }
 
         .offering-description {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--card-background);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s ease;
@@ -379,8 +453,8 @@
         }
 
         .solutions-block {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--card-background);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 2rem;
@@ -448,7 +522,7 @@
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            background: var(--bg-card);
+            background: var(--card-background);
             border: 3px solid transparent;
             display: flex;
             align-items: center;
@@ -500,7 +574,7 @@
             display: inline-block;
             padding: 1rem 2rem;
             background-color: var(--accent-purple);
-            color: #000;
+            color: var(--button-text);
             text-decoration: none;
             font-weight: bold;
             border: none;
@@ -513,7 +587,7 @@
 
         .cta-button:hover {
             background-color: var(--accent-blue);
-            color: #fff;
+            color: var(--button-text-hover);
             box-shadow: 0 0 20px var(--accent-purple);
         }
 
@@ -585,7 +659,7 @@
         .carousel-arrow {
             height: 50px;
             width: 50px;
-            background: var(--bg-card);
+            background: var(--card-background);
             border: 1px solid var(--accent-purple);
             color: var(--accent-purple);
             text-align: center;
@@ -601,7 +675,7 @@
 
         .carousel-arrow:hover {
             background: var(--accent-purple);
-            color: var(--bg-dark);
+            color: var(--page-text);
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
 
@@ -645,8 +719,8 @@
 
         .case-card {
             scroll-snap-align: start;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--card-background);
+            border: 1px solid var(--card-border);
             padding: 2rem;
             border-radius: 12px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -699,12 +773,12 @@
         .metrics {
             margin-top: 1.5rem;
             padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--card-border);
             position: relative;
         }
 
         .metric {
-            color: var(--accent-blue);
+            color: var(--metric-text);
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
             display: flex;
@@ -1105,7 +1179,7 @@
 
             .cta-button:hover {
                 background-color: var(--accent-purple);
-                color: #000;
+                color: var(--button-text);
                 box-shadow: none;
             }
 
@@ -1214,7 +1288,7 @@
 
             /* Mobile header improvements */
             header {
-                background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.9) 100%);
+                background: linear-gradient(180deg, var(--page-background) 0%, var(--header-gradient-end-strong) 100%);
                 backdrop-filter: blur(10px);
             }
 
@@ -1261,7 +1335,7 @@
             /* Mobile text selection */
             ::selection {
                 background: var(--accent-purple);
-                color: var(--bg-dark);
+                color: var(--page-text);
             }
 
             /* Mobile tap highlights */
@@ -1290,6 +1364,10 @@
                 -webkit-background-clip: text;
                 background-clip: text;
                 color: transparent;
+            }
+
+            header {
+                background: var(--page-background);
             }
         }
 
@@ -1338,9 +1416,9 @@
         }
 
         .contact-form {
-            background: var(--bg-card);
+            background: var(--card-background);
             padding: 2rem;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
         }
 
@@ -1360,8 +1438,8 @@
         .form-group textarea {
             width: 100%;
             padding: 0.8rem;
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
+            background: var(--card-background);
+            border: 1px solid var(--card-border);
             color: var(--text-primary);
             font-family: 'Courier New', Courier, monospace;
             font-size: 1rem;
@@ -1408,6 +1486,9 @@
                 display: none !important;
             }
         }
+        body.light-mode pre {
+            color: var(--text-secondary);
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
@@ -1427,9 +1508,13 @@
 <body>
     <div class="container">
         <header>
-            <a href="products/flagstone-projects.html" class="careers-button" style="right: 10rem;">Products</a>
-            <a href="careers/index.html" class="careers-button" style="right: 2rem;">Careers</a>
-            <div style="margin-bottom: 4rem;"></div>
+            <div class="header-bar">
+                <a href="#" class="toggle-mode-button">
+                    <span class="toggle-mode-button-emoji" style="text-decoration: none;">🌙</span>
+                </a>
+                <a href="products/flagstone-projects.html" class="header-link products-link">Products</a>
+                <a href="careers/index.html" class="header-link careers-link">Careers</a>
+            </div>
             <h1 class="glitch-text" style="background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; color: transparent;">FastAI</h1>
             <p class="glitch-text" style="font-size: 1.5rem; margin-top: -1rem; margin-bottom: 2rem;">AI made useful.</p>            
             <p class="subtitle" style="font-size: 1.3rem; margin-top: 1.5rem; color: var(--text-secondary); font-style: italic; font-weight: 300;">AI is the most transformative technology of our time. Automate business operational processes,  & unlock a dedicated team of AI & ML engineers, <span class="terminal-green">today</span>.</p>
@@ -1563,7 +1648,7 @@
                         </div>
                     </div>
                     <div style="margin-top: 2rem; text-align: center;">
-                        <pre class="hide-on-mobile" style="color: #FFD54F; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold; overflow-x: auto; white-space: pre; display: inline-block; text-align: left;">
+                        <pre class="hide-on-mobile" style="color: var(--diagram-light-yellow); font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold; overflow-x: auto; white-space: pre; display: inline-block; text-align: left;">
 
                 Code & Infrastructure                    /             Managed Service
                                                          /
@@ -1701,11 +1786,11 @@
             <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;">
                 <div style="text-align: center;">
                     <p style="color: var(--text-secondary); margin-bottom: 1rem;">Looking for more inspiration?</p>
-                    <a href="popular-projects.html" style="display: inline-block; padding: 1rem 2rem; background-color: var(--accent-purple); color: #000; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;">See Popular Projects</a>
+                    <a href="popular-projects.html" style="display: inline-block; padding: 1rem 2rem; background-color: var(--accent-purple); color: var(--button-text); text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;">See Popular Projects</a>
                 </div>
                 <div style="text-align: center;">
                     <p style="color: var(--text-secondary); margin-bottom: 1rem;">Ready-to-deploy solutions?</p>
-                    <a href="products/flagstone-projects.html" style="display: inline-block; padding: 1rem 2rem; background-color: var(--accent-blue); color: #000; text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;">View Flagstone Products</a>
+                    <a href="products/flagstone-projects.html" style="display: inline-block; padding: 1rem 2rem; background-color: var(--accent-blue); color: var(--button-text); text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;">View Flagstone Products</a>
                 </div>
             </div>
         </section>
@@ -1948,6 +2033,50 @@
                         }, 100);
                     });
                 });
+            }
+        });
+
+        const bodyEl = document.body;
+        const toggleButton = document.querySelector('.toggle-mode-button');
+        const emojiSpan = document.querySelector('.toggle-mode-button-emoji');
+
+        const THEME_KEY = 'fastai-theme';
+
+        function updateToggleEmoji() {
+            if (bodyEl.classList.contains('light-mode')) {
+                emojiSpan.textContent = '☀️';
+            } else {
+                emojiSpan.textContent = '🌙';
+            }
+        }
+ 
+        const applyTheme = (mode) => {
+            if (mode === 'light') {
+                bodyEl.classList.add('light-mode');
+            } else {
+                bodyEl.classList.remove('light-mode');
+            }
+            updateToggleEmoji();
+        };
+ 
+        const storedTheme = localStorage.getItem(THEME_KEY);
+        if (storedTheme) {
+            applyTheme(storedTheme);
+        } else {
+            applyTheme(bodyEl.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+ 
+        toggleButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            bodyEl.classList.toggle('light-mode');
+            const mode = bodyEl.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem(THEME_KEY, mode);
+            updateToggleEmoji();
+        });
+
+        document.addEventListener('storage', (e) => {
+            if (e.key === THEME_KEY && e.newValue) {
+                applyTheme(e.newValue);
             }
         });
     </script>

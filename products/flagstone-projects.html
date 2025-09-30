@@ -18,6 +18,43 @@
             --text-primary: #FFFFFF;
             --text-secondary: #9CA3AF;
             --border-color: #2D2D2D;
+            --bg-light: #FFFFFF;
+            --text-dark: #000000;
+            --border-light: #E5E7EB;
+            --diagram-light-yellow: #FBBF24;
+            --text-highlight: #FFFFFF;
+            --card-background: var(--bg-card);
+            --card-border: var(--border-color);
+            --button-text: var(--bg-dark);
+            --button-text-hover: var(--bg-light);
+            --metric-text: var(--accent-blue);
+            --page-background: var(--bg-dark);
+            --page-text: var(--text-primary);
+            --input-background: var(--bg-card);
+            --input-border: var(--border-color);
+            --header-chip-background: rgba(13, 13, 13, 0.65);
+            --header-chip-border: rgba(255, 255, 255, 0.05);
+        }
+
+        body.light-mode {
+            --bg-card: #F3F4F6;
+            --text-primary: #0F172A;
+            --text-secondary: #374151;
+            --border-color: var(--border-light);
+            --text-highlight: #111827;
+            --card-background: #FFFFFF;
+            --card-border: var(--border-light);
+            --button-text: #FFFFFF;
+            --button-text-hover: #1F2937;
+            --metric-text: #2D3A8C;
+            --page-background: var(--bg-light);
+            --page-text: var(--text-dark);
+            --text-dark: #0B1120;
+            --input-background: #FFFFFF;
+            --input-border: var(--border-light);
+            --diagram-light-yellow: #B45309;
+            --header-chip-background: rgba(255, 255, 255, 0.85);
+            --header-chip-border: rgba(15, 23, 42, 0.12);
         }
 
         * {
@@ -28,8 +65,8 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
+            background-color: var(--page-background);
+            color: var(--page-text);
             line-height: 1.6;
         }
 
@@ -41,36 +78,78 @@
 
         header {
             text-align: center;
-            padding: 4rem 0;
+            padding: 6rem 0 4rem;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 4rem;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.8) 100%);
+            background: var(--page-background);
             position: relative;
         }
 
-        .back-button {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            padding: 0.8rem 1.5rem;
+        .header-bar {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--header-chip-border);
+            background: var(--header-chip-background);
+            backdrop-filter: blur(12px);
+            z-index: 1100;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+        }
+
+        .header-bar .toggle-mode-button {
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-background);
+            border: 2px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .header-link {
+            padding: 0.75rem 1.5rem;
             background-color: transparent;
-            color: var(--accent-purple);
             text-decoration: none;
             font-weight: bold;
-            border: 2px solid var(--accent-purple);
+            border: 2px solid transparent;
             cursor: pointer;
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 8px;
             font-size: 0.9rem;
-            z-index: 10;
         }
 
-        .back-button:hover {
+        .products-link {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .products-link:hover {
+            background-color: var(--accent-blue);
+            color: var(--page-text);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .back-link {
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .back-link:hover {
             background-color: var(--accent-purple);
-            color: #000;
-            box-shadow: 0 0 20px var(--accent-purple);
+            color: var(--page-text);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
         }
 
         .glitch-text {
@@ -112,8 +191,8 @@
         }
 
         .flagstone-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--card-background);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 2rem;
             max-width: 1000px;
@@ -161,7 +240,7 @@
         .applications {
             margin-top: 2rem;
             padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--card-border);
         }
 
         .applications h4 {
@@ -189,23 +268,57 @@
             left: 0;
         }
 
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-purple);
+            color: var(--button-text);
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+            border-radius: 8px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-blue);
+            color: var(--button-text-hover);
+            box-shadow: 0 0 20px var(--accent-purple);
+        }
+
         footer {
             text-align: center;
             padding: 2rem 0;
             margin-top: 4rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--card-border);
         }
 
         /* ===== MOBILE OPTIMIZATION ===== */
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
-                max-width: 100%;
+                padding: 1.2rem;
             }
 
             header {
-                padding: 2rem 0 1rem 0;
-                margin-bottom: 2rem;
+                padding: 6.5rem 0 3rem;
+            }
+
+            .header-bar {
+                gap: 0.75rem;
+                padding: 0.5rem 0.8rem;
+            }
+
+            .header-link {
+                padding: 0.65rem 1.1rem;
+                font-size: 0.85rem;
+            }
+
+            .flagstone-card {
+                padding: 1.5rem;
             }
 
             .glitch-text {
@@ -337,8 +450,16 @@
 <body>
     <div class="container">
         <header>
-            <a href="../index.html" class="back-button">← Back</a>
-            <h1 class="glitch-text">Products</h1>
+            <div class="header-bar">
+                <a href="#" class="toggle-mode-button">
+                    <span class="toggle-mode-button-emoji" style="text-decoration: none;">🌙</span>
+                </a>
+                <a href="../index.html" class="header-link back-link">Home</a>
+                <a href="flagstone-projects.html" class="header-link products-link">Products</a>
+                <a href="../careers/index.html" class="header-link back-link">Careers</a>
+            </div>
+            <div style="margin-bottom: 5rem;"></div>
+            <h1 class="glitch-text">Flagstone Projects</h1>
             <p class="subtitle">Explore ready-to-deploy AI solutions.</p>
         </header>
 
@@ -376,7 +497,7 @@
                         </div>
                     </div>
                     <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <pre style="color: #FFD54F; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold;">
+                        <pre style="color: var(--diagram-light-yellow); font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold;">
       +-----------------------------+
       |       1. Upload Document    |
       +--------------+--------------+
@@ -438,7 +559,7 @@
                         </div>
                     </div>
                     <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
-                        <pre style="color: #FFD54F; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold;">
+                        <pre style="color: var(--diagram-light-yellow); font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold;">
   +-----------------------------+
   |       News Article          |
   +-----------------------------+
@@ -461,11 +582,49 @@
 </div>
 
     </div>
-</body>
-</div>
-</section>
+    <script>
+        const bodyEl = document.body;
+        const toggleButton = document.querySelector('.toggle-mode-button');
+        const emojiSpan = document.querySelector('.toggle-mode-button-emoji');
+        const THEME_KEY = 'fastai-theme';
 
-<footer>
-    <p>&copy; 2025 Fast AI. All rights reserved.</p>
-</footer>
+        function updateToggleEmoji() {
+            if (bodyEl.classList.contains('light-mode')) {
+                emojiSpan.textContent = '☀️';
+            } else {
+                emojiSpan.textContent = '🌙';
+            }
+        }
+
+        const applyTheme = (mode) => {
+            if (mode === 'light') {
+                bodyEl.classList.add('light-mode');
+            } else {
+                bodyEl.classList.remove('light-mode');
+            }
+            updateToggleEmoji();
+        };
+
+        const storedTheme = localStorage.getItem(THEME_KEY);
+        if (storedTheme) {
+            applyTheme(storedTheme);
+        } else {
+            applyTheme(bodyEl.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+
+        toggleButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            bodyEl.classList.toggle('light-mode');
+            const mode = bodyEl.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem(THEME_KEY, mode);
+            updateToggleEmoji();
+        });
+
+        document.addEventListener('storage', (e) => {
+            if (e.key === THEME_KEY && e.newValue) {
+                applyTheme(e.newValue);
+            }
+        });
+    </script>
+</body>
 </html>

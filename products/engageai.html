@@ -17,6 +17,43 @@
             --text-primary: #FFFFFF;
             --text-secondary: #9CA3AF;
             --border-color: #2D2D2D;
+            --bg-light: #FFFFFF;
+            --text-dark: #000000;
+            --border-light: #E5E7EB;
+            --diagram-light-yellow: #FBBF24;
+            --text-highlight: #FFFFFF;
+            --card-background: var(--bg-card);
+            --card-border: var(--border-color);
+            --button-text: var(--bg-dark);
+            --button-text-hover: var(--bg-light);
+            --metric-text: var(--accent-blue);
+            --page-background: var(--bg-dark);
+            --page-text: var(--text-primary);
+            --input-background: var(--bg-card);
+            --input-border: var(--border-color);
+            --header-chip-background: rgba(13, 13, 13, 0.65);
+            --header-chip-border: rgba(255, 255, 255, 0.05);
+        }
+
+        body.light-mode {
+            --bg-card: #F3F4F6;
+            --text-primary: #0F172A;
+            --text-secondary: #374151;
+            --border-color: var(--border-light);
+            --text-highlight: #111827;
+            --card-background: #FFFFFF;
+            --card-border: var(--border-light);
+            --button-text: #FFFFFF;
+            --button-text-hover: #1F2937;
+            --metric-text: #2D3A8C;
+            --page-background: var(--bg-light);
+            --page-text: var(--text-dark);
+            --text-dark: #0B1120;
+            --input-background: #FFFFFF;
+            --input-border: var(--border-light);
+            --diagram-light-yellow: #B45309;
+            --header-chip-background: rgba(255, 255, 255, 0.85);
+            --header-chip-border: rgba(15, 23, 42, 0.12);
         }
 
         * {
@@ -27,8 +64,8 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-primary);
+            background-color: var(--page-background);
+            color: var(--page-text);
             line-height: 1.6;
         }
 
@@ -40,10 +77,10 @@
 
         header {
             text-align: center;
-            padding: 4rem 0;
+            padding: 6rem 0 4rem;
             border-bottom: 1px solid var(--border-color);
             margin-bottom: 4rem;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(13, 13, 13, 0.8) 100%);
+            background: var(--page-background);
             position: relative;
         }
 
@@ -99,8 +136,8 @@
         }
 
         .feature-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--card-background);
+            border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -182,18 +219,107 @@
         }
 
         .note-box {
-            background: rgba(236, 72, 153, 0.05);
+            background: rgba(236, 72, 153, 0.1);
             border-left: 3px solid var(--accent-pink);
             padding: 1rem;
             margin: 2rem 0;
             border-radius: 0 8px 8px 0;
+            color: var(--text-secondary);
         }
 
         footer {
             text-align: center;
             padding: 2rem 0;
             margin-top: 4rem;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .header-bar {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--header-chip-border);
+            background: var(--header-chip-background);
+            backdrop-filter: blur(12px);
+            z-index: 1100;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+        }
+
+        .header-bar .toggle-mode-button {
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-background);
+            border: 2px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .header-link {
+            padding: 0.75rem 1.5rem;
+            background-color: transparent;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .primary-link {
+            border-color: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .primary-link:hover {
+            background-color: var(--accent-blue);
+            color: var(--page-text);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .secondary-link {
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .secondary-link:hover {
+            background-color: var(--accent-purple);
+            color: var(--page-text);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-purple);
+            color: var(--button-text);
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 8px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-blue);
+            color: var(--button-text-hover);
+            box-shadow: 0 0 20px var(--accent-purple);
         }
 
         @media (max-width: 1400px) {
@@ -210,23 +336,26 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
+                padding: 1.2rem;
             }
 
-            .glitch-text {
-                font-size: 2.5rem;
+            header {
+                padding: 6.5rem 0 3rem;
             }
 
-            .section {
-                padding: 0 1rem;
+            .header-bar {
+                gap: 0.75rem;
+                padding: 0.5rem 0.8rem;
             }
 
-            .feature-title {
-                font-size: 1.5rem;
+            .header-link {
+                padding: 0.65rem 1.1rem;
+                font-size: 0.85rem;
             }
 
-            .feature-content > div {
-                grid-template-columns: 1fr !important;
+            .feature-card,
+            .pricing-card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -234,6 +363,14 @@
 <body>
     <div class="container">
         <header>
+            <div class="header-bar">
+                <a href="#" class="toggle-mode-button">
+                    <span class="toggle-mode-button-emoji" style="text-decoration: none;">🌙</span>
+                </a>
+                <a href="../index.html" class="header-link secondary-link">Home</a>
+                <a href="flagstone-projects.html" class="header-link primary-link">Products</a>
+                <a href="../careers/index.html" class="header-link secondary-link">Careers</a>
+            </div>
             <h2 class="glitch-text">EngageAI_</h2>
             <p class="subtitle">🚀 Automated Content Creation & Distribution</p>
             <p class="subtitle" style="margin-top: 1rem;">Transform your client engagement with AI-powered content generation</p>
@@ -386,5 +523,49 @@
             <p>&copy; 2025 Fast AI. All rights reserved.</p>
         </footer>
     </div>
+    <script>
+        const bodyEl = document.body;
+        const toggleButton = document.querySelector('.toggle-mode-button');
+        const emojiSpan = document.querySelector('.toggle-mode-button-emoji');
+        const THEME_KEY = 'fastai-theme';
+
+        function updateToggleEmoji() {
+            if (bodyEl.classList.contains('light-mode')) {
+                emojiSpan.textContent = '☀️';
+            } else {
+                emojiSpan.textContent = '🌙';
+            }
+        }
+
+        const applyTheme = (mode) => {
+            if (mode === 'light') {
+                bodyEl.classList.add('light-mode');
+            } else {
+                bodyEl.classList.remove('light-mode');
+            }
+            updateToggleEmoji();
+        };
+
+        const storedTheme = localStorage.getItem(THEME_KEY);
+        if (storedTheme) {
+            applyTheme(storedTheme);
+        } else {
+            applyTheme(bodyEl.classList.contains('light-mode') ? 'light' : 'dark');
+        }
+
+        toggleButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            bodyEl.classList.toggle('light-mode');
+            const mode = bodyEl.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem(THEME_KEY, mode);
+            updateToggleEmoji();
+        });
+
+        document.addEventListener('storage', (e) => {
+            if (e.key === THEME_KEY && e.newValue) {
+                applyTheme(e.newValue);
+            }
+        });
+    </script>
 </body>
 </html>
