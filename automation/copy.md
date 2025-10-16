@@ -1,7 +1,25 @@
 # Automation
 
+Automate document processing, data extraction, validation, summarisation & routing with AutoMax. Faster, more accurate & lower costs than manual workflow.
+
+Automate your document workflows with AutoMax. FastAI—AI made useful.
+
+
 If your business has _repetitive_ tasks, _manual decision-making_, or _data-heavy processes_,
 we can automate, accelerate, and scale them with AI.
+
+
+Ref:
+
+```
+Two hours. Every single day. 
+
+That's how much time the average employee spends processing and searching for documents. This is slow, tedious, error-prone, expensive, mindless work.
+
+FastAI's AutoMax fixes it. Our AI extracts, validates, summarizes, and routes documents automatically—integrated with the tools you're already using.
+
+70% faster, 90% more accurate, lower cost — all while unlocking valuable data that turns a cost center into an asset.
+```
 
 
 ### Our Workflow 🔄
