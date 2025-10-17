@@ -826,7 +826,23 @@
             header {
                 padding: 2rem 0 1rem 0;
                 margin-bottom: 2rem;
-                padding-top: 4rem; /* Add top padding to account for careers button */
+                padding-top: 7rem; /* Space for fixed header bar to avoid covering logo */
+            }
+
+            .header-bar {
+                gap: 0.5rem;
+                padding: 0.5rem 0.75rem;
+                top: 0.75rem;
+            }
+
+            .header-bar .toggle-mode-button {
+                width: 36px;
+                height: 36px;
+            }
+
+            .header-link {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
             }
 
             .glitch-text {
@@ -1037,7 +1053,21 @@
 
             /* Ensure buttons don't overlap on very small screens */
             header {
-                padding-top: 4rem;
+                padding-top: 7.5rem;
+            }
+
+            .header-bar {
+                gap: 0.4rem;
+                padding: 0.45rem 0.6rem;
+                top: 0.5rem;
+            }
+            .header-bar .toggle-mode-button {
+                width: 32px;
+                height: 32px;
+            }
+            .header-link {
+                padding: 0.45rem 0.8rem;
+                font-size: 0.8rem;
             }
 
             .younews-button {
@@ -1601,23 +1631,20 @@
 
         <section class="process">
             <div class="process-step">
-                <div class="step-number">01</div>
                 <div class="step-content">
-                    <h2>> Discover</h2>
+                    <h2>> 1 Discover</h2>
                     <p>We analyze your business operations to identify high-impact AI & ML use cases. Our expert team maps out opportunities where AI can drive efficiency, innovation, and growth.</p>
                 </div>
             </div>
             <div class="process-step">
-                <div class="step-number">02</div>
                 <div class="step-content">
-                    <h2>> Build</h2>
+                    <h2>> 2 Build</h2>
                     <p>Our engineers develop custom AI solutions tailored to your specific needs. We leverage cutting-edge machine learning technologies to create powerful, scalable systems.</p>
                 </div>
             </div>
             <div class="process-step">
-                <div class="step-number">03</div>
                 <div class="step-content">
-                    <h2>> Deploy</h2>
+                    <h2>> 3 Deploy</h2>
                     <p>We seamlessly integrate AI solutions into your existing infrastructure, ensuring smooth deployment and operational excellence.</p>
                 </div>
             </div>
