@@ -9,18 +9,6 @@ If your business has _repetitive_ tasks, _manual decision-making_, or _data-heav
 we can automate, accelerate, and scale them with AI.
 
 
-Ref:
-
-```
-Two hours. Every single day. 
-
-That's how much time the average employee spends processing and searching for documents. This is slow, tedious, error-prone, expensive, mindless work.
-
-FastAI's AutoMax fixes it. Our AI extracts, validates, summarizes, and routes documents automatically—integrated with the tools you're already using.
-
-70% faster, 90% more accurate, lower cost — all while unlocking valuable data that turns a cost center into an asset.
-```
-
 
 ### Our Workflow 🔄
 
@@ -28,7 +16,7 @@ FastAI's AutoMax fixes it. Our AI extracts, validates, summarizes, and routes do
 
 2. **Opportunity Assessment**: We prepare a comprehensive analysis document (at no cost) outlining specific AI/ML applications tailored to your business. Each recommendation includes measurable ROI projections and implementation timelines.
 
-3. **Strategic Planning**: If you're interested in moving forward, we work collaboratively to prioritize projects, define success metrics, and create a phased implementation roadmap.
+3. **Strategic Planning**: We work collaboratively to prioritize projects, define success metrics, and create a phased implementation roadmap.
 
 4. **Build & Deploy**: We develop, test, and deploy your automation solutions!
 

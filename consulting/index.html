@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Consulting - FastAI</title>
+    <link rel="icon" href="../flagstone/favicon.png" type="image/png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap');
+
+        :root {
+            --accent-purple: #8B5CF6;
+            --accent-blue: #3B82F6;
+            --accent-pink: #EC4899;
+            --bg-dark: #0D0D0D;
+            --bg-card: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9CA3AF;
+            --border-color: #2D2D2D;
+            --bg-light: #FFFFFF;
+            --text-dark: #000000;
+            --border-light: #E5E7EB;
+            --diagram-light-yellow: #FBBF24;
+            --text-highlight: #FFFFFF;
+            --card-background: var(--bg-card);
+            --card-border: var(--border-color);
+            --button-text: var(--bg-dark);
+            --button-text-hover: var(--bg-light);
+            --metric-text: var(--accent-blue);
+            --page-background: var(--bg-dark);
+            --page-text: var(--text-primary);
+            --input-background: var(--bg-card);
+            --input-border: var(--border-color);
+            --header-gradient-end: rgba(17, 24, 39, 0.8);
+            --header-gradient-end-strong: rgba(17, 24, 39, 0.9);
+            --header-chip-background: rgba(13, 13, 13, 0.65);
+            --header-chip-border: rgba(255, 255, 255, 0.05);
+        }
+
+        body.light-mode {
+            --bg-card: #F3F4F6;
+            --text-primary: #0F172A;
+            --text-secondary: #374151;
+            --border-color: var(--border-light);
+            --text-highlight: #111827;
+            --card-background: #FFFFFF;
+            --card-border: var(--border-light);
+            --button-text: #FFFFFF;
+            --button-text-hover: #1F2937;
+            --metric-text: #2D3A8C;
+            --page-background: var(--bg-light);
+            --page-text: var(--text-dark);
+            --text-dark: #0B1120;
+            --input-background: #FFFFFF;
+            --input-border: var(--border-light);
+            --diagram-light-yellow: #B45309;
+            --header-gradient-end: rgba(255, 255, 255, 0.8);
+            --header-gradient-end-strong: rgba(255, 255, 255, 0.9);
+            --header-chip-background: rgba(255, 255, 255, 0.85);
+            --header-chip-border: rgba(15, 23, 42, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', Courier, monospace; }
+        body { background-color: var(--page-background); color: var(--page-text); line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+        header { text-align: center; padding: 6rem 0 4rem; border-bottom: 1px solid var(--border-color); margin-bottom: 4rem; background: var(--page-background); position: relative; }
+        .header-bar { position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 1rem; padding: 0.6rem 1rem; border-radius: 999px; border: 1px solid var(--header-chip-border); background: var(--header-chip-background); backdrop-filter: blur(12px); z-index: 1100; box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18); }
+        .header-bar .toggle-mode-button { width: 40px; height: 40px; background-color: var(--card-background); border: 2px solid var(--card-border); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; transition: all 0.3s ease; border-radius: 8px; }
+        .header-link { padding: 0.75rem 1.5rem; background-color: transparent; text-decoration: none; font-weight: bold; border: 2px solid transparent; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; font-size: 0.9rem; }
+        .products-link { border-color: var(--accent-blue); color: var(--accent-blue); }
+        .products-link:hover { background-color: var(--accent-blue); color: var(--page-text); box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+        .careers-link { border-color: var(--accent-purple); color: var(--accent-purple); }
+        .careers-link:hover { background-color: var(--accent-purple); color: var(--page-text); box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+        .back-link { border-color: var(--accent-purple); color: var(--accent-purple); }
+        .back-link:hover { background-color: var(--accent-purple); color: var(--page-text); box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+        .glitch-text { font-size: 5.5rem; font-weight: 800; font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.2em; background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; }
+        .subtitle { color: var(--text-secondary); font-size: 1.2rem; margin-top: 1rem; }
+
+        /* From homepage for moved sections */
+        .automation-section { margin: 6rem 0; padding: 0 2rem; }
+        .automation-header { text-align: center; margin-bottom: 4rem; }
+        .automation-header h2 { background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; margin-bottom: 1rem; }
+        .automation-workflow { margin: 4rem 0; max-width: 1000px; margin-left: auto; margin-right: auto; }
+        .workflow-list { max-width: 800px; margin: 0 auto; margin-top: 2rem; }
+        .workflow-item { display: flex; align-items: flex-start; margin-bottom: 1.5rem; padding: 0; }
+        .workflow-number { color: var(--accent-purple); font-weight: bold; font-size: 1.2rem; margin-right: 1rem; min-width: 30px; display: inline-block; }
+        .workflow-content { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; flex: 1; }
+        .workflow-content strong { color: var(--text-highlight); }
+        .automation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .automation-card { background: var(--card-background); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .automation-card:hover { transform: translateY(-5px); border-color: var(--accent-purple); box-shadow: 0 20px 40px rgba(139, 92, 246, 0.1); }
+        .automation-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+        .automation-card h3 { background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.3rem; margin-bottom: 1.5rem; }
+        .automation-card ul { list-style: none; padding: 0; position: relative; }
+        .automation-card li { color: var(--text-secondary); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.5; }
+        .automation-card li::before { content: '>'; color: var(--accent-purple); position: absolute; left: 0; font-weight: bold; }
+
+        .our-offering { margin: 6rem 0; padding: 0 2rem; }
+        .offering-header { text-align: center; margin-bottom: 4rem; }
+        .offering-header h2 { background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; margin-bottom: 1rem; }
+
+        .process { display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start; gap: 2rem; margin: 4rem 0; padding: 0 2rem; }
+        .process-step { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+        .step-content { max-width: 300px; text-align: center; }
+        .step-content h2 { color: var(--accent-purple); margin-bottom: 1rem; font-size: 1.5rem; }
+        .step-content p { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; }
+
+        .flagstone-projects { margin: 6rem 0; padding: 0 2rem; }
+        .flagstone-projects-header { text-align: center; margin-bottom: 4rem; }
+        .flagstone-card { background: var(--card-background); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem; max-width: 1000px; margin: 0 auto; transition: all 0.3s ease; }
+        .flagstone-card:hover { border-color: var(--accent-purple); box-shadow: 0 0 30px rgba(139, 92, 246, 0.1); }
+        .flagstone-content h3 { background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.8rem; margin-bottom: 1.5rem; }
+        .benefits { margin: 2rem 0; }
+        .benefit { display: flex; align-items: center; margin-bottom: 1rem; color: var(--text-secondary); }
+        .benefit-icon { color: var(--accent-purple); margin-right: 1rem; font-weight: bold; }
+
+        .use-cases { margin: 6rem 0; position: relative; padding: 0 2rem; }
+        .use-cases-header { text-align: center; margin-bottom: 4rem; }
+        .use-cases-header h2 { background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; margin-bottom: 1rem; text-align: center; }
+        .carousel-wrapper { max-width: 1200px; width: 100%; position: relative; }
+        .carousel-arrow { height: 50px; width: 50px; background: var(--card-background); border: 1px solid var(--accent-purple); color: var(--accent-purple); text-align: center; line-height: 50px; border-radius: 50%; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; transition: all 0.3s ease; }
+        .carousel-arrow.left { left: -25px; }
+        .carousel-arrow.right { right: -25px; }
+        .carousel { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% / 3) - 12px); gap: 2rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
+        .carousel::-webkit-scrollbar { display: none; }
+        .case-card { scroll-snap-align: start; background: var(--card-background); border: 1px solid var(--card-border); padding: 2rem; border-radius: 12px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .case-card h3 { background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.5rem; margin-bottom: 1rem; position: relative; }
+        .case-card p { color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; position: relative; }
+        .metrics { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--card-border); position: relative; }
+        .metric { color: var(--metric-text); font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .metric::before { content: '>'; color: var(--accent-purple); font-weight: bold; }
+
+        footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px solid var(--border-color); }
+
+        @media (max-width: 1200px) { .carousel { grid-auto-columns: calc((100% / 2) - 1rem); } }
+        @media (max-width: 768px) { .carousel { grid-auto-columns: 100%; } .carousel-arrow { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-bar">
+                <a href="#" class="toggle-mode-button"><span class="toggle-mode-button-emoji" style="text-decoration: none;">🌙</span></a>
+                <a href="../index.html#automax" class="header-link products-link">AutoMax</a>
+                <a href="../consulting/index.html" class="header-link products-link">Consulting</a>
+                <a href="../careers/index.html" class="header-link careers-link">Careers</a>
+            </div>
+            <h1 class="glitch-text" style="background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; color: transparent;">Consulting</h1>
+            <p class="subtitle">Bespoke automation, AI consulting, deployment architecture, and notable projects.</p>
+        </header>
+
+        <!-- Bespoke Automation Pipelines -->
+        <section class="automation-section">
+            <div class="automation-header">
+                <h2>> Bespoke Automation Pipelines_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 1.1rem;">If your business has <span class="terminal-green">repetitive</span> tasks, <span class="terminal-green">manual decision-making</span>, or <span class="terminal-green">data-heavy processes</span>, we can automate, accelerate, and scale them with AI.</p>
+            </div>
+            <div class="automation-workflow">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-purple); font-size: 1.5rem;">Our Workflow 🔄</h3>
+                <div class="workflow-list">
+                    <div class="workflow-item"><span class="workflow-number">1.</span><div class="workflow-content"><strong>Discovery & Analysis</strong> - We meet to understand your business operations, identify bottlenecks, and map out your most time-consuming and costly processes.</div></div>
+                    <div class="workflow-item"><span class="workflow-number">2.</span><div class="workflow-content"><strong>Opportunity Assessment</strong> - We prepare a comprehensive analysis document (at no cost) outlining specific AI/ML applications tailored to your business. Each recommendation includes measurable ROI projections and implementation timelines.</div></div>
+                    <div class="workflow-item"><span class="workflow-number">3.</span><div class="workflow-content"><strong>Strategic Planning</strong> - If you're interested in moving forward, we work collaboratively to prioritize projects, define success metrics, and create a phased implementation roadmap.</div></div>
+                    <div class="workflow-item"><span class="workflow-number">4.</span><div class="workflow-content"><strong>Build & Deploy</strong> - We develop, test, and deploy your automation solutions!</div></div>
+                </div>
+            </div>
+            <div class="automation-grid">
+                <div class="automation-card"><div class="automation-icon">🔄</div><h3>> Operations & Processes_</h3><ul><li>Data entry & validation (forms, invoices, spreadsheets)</li><li>Document processing (contracts, PDFs, scans, compliance docs)</li><li>Report generation (dashboards, summaries, insights)</li><li>Workflow automation (trigger-based actions across systems)</li></ul></div>
+                <div class="automation-card"><div class="automation-icon">🛒</div><h3>> Sales & Customer Engagement_</h3><ul><li>Lead qualification (auto-sorting prospects, scoring opportunities)</li><li>Customer support (chatbots, ticket triage, knowledge base search)</li><li>Personalized outreach (email, LinkedIn, proposals)</li><li>Order & inventory management (alerts, reconciliations)</li></ul></div>
+                <div class="automation-card"><div class="automation-icon">📊</div><h3>> Intelligence & Insights_</h3><ul><li>Forecasting & prediction (demand, churn, financial models)</li><li>Sentiment & feedback analysis (reviews, surveys, social media)</li><li>Market & competitor monitoring (real-time scanning)</li><li>Anomaly detection (fraud, errors, unusual trends)</li></ul></div>
+            </div>
+        </section>
+
+        <!-- AI Consulting -->
+        <section class="our-offering">
+            <div class="offering-header">
+                <h2>> AI Consulting_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 1.1rem;">Unlock a dedicated, specialized team of AI & ML engineers, today.</p>
+                <p style="color: var(--text-secondary); margin-top: 1rem; font-size: 1rem;">We help you identify & build AI & ML applications, integrating with your existing business. We offer you as much or as little control as you like.</p>
+            </div>
+        </section>
+
+        <!-- Process: Discover, Build, Deploy -->
+        <section class="process">
+            <div class="process-step">
+                <div class="step-content">
+                    <h2>> 1 Discover</h2>
+                    <p>We analyze your business operations to identify high-impact AI & ML use cases. Our expert team maps out opportunities where AI can drive efficiency, innovation, and growth.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-content">
+                    <h2>> 2 Build</h2>
+                    <p>Our engineers develop custom AI solutions tailored to your specific needs. We leverage cutting-edge machine learning technologies to create powerful, scalable systems.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-content">
+                    <h2>> 3 Deploy</h2>
+                    <p>We seamlessly integrate AI solutions into your existing infrastructure, ensuring smooth deployment and operational excellence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deployment Architecture -->
+        <section class="flagstone-projects">
+            <div class="flagstone-projects-header">
+                <h2 style="background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 2.5rem; margin-bottom: 1rem; text-align: center;">> Deployment Architecture_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">Our workflow is malleable to whatever suits you. We offer both fully managed services & complete software integrations.</p>
+            </div>
+            <div class="flagstone-card">
+                <div class="flagstone-content">
+                    <h3>> Flexible Deployment Options_</h3>
+                    <p>We give you as much control as you desire. Choose between fully managed services or complete software integrations that integrate into your existing infrastructure.</p>
+                    <div class="benefits">
+                        <div class="benefit"><span class="benefit-icon">✓</span><span class="benefit-text">Managed Services: We handle complete training, deployment & monitoring</span></div>
+                        <div class="benefit"><span class="benefit-icon">✓</span><span class="benefit-text">Code & Infrastructure: Integrate AI/ML systems into your existing stack</span></div>
+                        <div class="benefit"><span class="benefit-icon">✓</span><span class="benefit-text">Flexible Control: Take over maintenance or keep everything managed</span></div>
+                    </div>
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <pre class="hide-on-mobile" style="color: var(--diagram-light-yellow); font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.4; margin: 0; font-weight: bold; overflow-x: auto; white-space: pre; display: inline-block; text-align: left;">
+
+        Code & Infrastructure                    /             Managed Service
+                                                 /
++--------------------+      +--------------------+       /        +--------------------------+
+| Application Code   |<---->| Database Server    |       /       /                          /|
++--------------------+      +--------------------+       /      /                          / |
+         |                          ^                    /     +--------------------------+  |
+         |                          |                    /     |                          |  |
+         v                          |                    /     |     (Cloud Provider)     | /
++--------------------+      +--------------------+       /     |                          |/
+| Web Server         |<---->| Load Balancer      |       /     +--------------------------+
++--------------------+      +--------------------+       /                  |
+         |                          ^                    /                  |
+         |                          |                    /                  |
+         v                          |                    /                  |
++--------------------+      +--------------------+       /                  * Connection Point
+| CI/CD Pipeline     |<---->| Monitoring System  |       /  
++--------------------+      +--------------------+       /
+
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notable Projects + Buttons -->
+        <section class="use-cases">
+            <div class="use-cases-header">
+                <h2>> Notable Projects_</h2>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">We regularly combine traditional ML and AI.</p>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel-arrow left"><</div>
+                <div class="carousel-arrow right">></div>
+                <div class="carousel">
+                    <div class="case-card"><h3>> Automated Invoice Processing</h3><p>Implemented an end-to-end solution to extract and process invoice line items using OCR and AI, compiling editable tables and automatically flagging exceptions. This system drastically reduced manual processing time and improved claims accuracy.</p><div class="metrics"><div class="metric">Reduced invoice processing time by 60%</div><div class="metric">Improved claim accuracy by 5%</div></div></div>
+                    <div class="case-card"><h3>> Reducing Insurance Policy Lapse (NTU)</h3><p>Developed a predictive ML model to identify and reduce policy lapses ("not taken up") in insurance, allowing targeted interventions. The model enabled more effective retention strategies and improved policy uptake rates.</p><div class="metrics"><div class="metric">2% reduction in policy lapse rate</div><div class="metric">Significant uplift in customer retention</div></div></div>
+                    <div class="case-card"><h3>> Sales Analytics Chatbot</h3><p>Built a custom LLM-powered chatbot for financial advisors and managers, enabling natural language access to client data, sales performance analytics, and policy editing through secure, conversational interfaces.</p><div class="metrics"><div class="metric">Automated manual advisor queries</div><div class="metric">Provide an easy to use interface for managers</div></div></div>
+                    <div class="case-card"><h3>> Medical Diagnostic Modelling</h3><p>Designed and deployed ensemble models to predict psychiatric conditions such as major depressive disorder (MDD), bipolar disorder, and other mental health states using high-frequency physiological data.</p><div class="metrics"><div class="metric">Achieved 75% FPR / 65% FNR in clinical benchmarks</div><div class="metric">Enabled earlier intervention for high-risk cases</div></div></div>
+                    <div class="case-card"><h3>> High-Frequency Signal Denoising</h3><p>Developed and released in-house algorithms for denoising EEG/EOG physiological signals, used as a preprocessing step for downstream ML models.</p><div class="metrics"><div class="metric">Improved data input quality</div><div class="metric">Enabled robust high-frequency data analytics & ML</div></div></div>
+                    <div class="case-card"><h3>> Sleep Stage Transition & Sleep Staging</h3><p>Built machine learning models to predict sleep stage transitions (e.g., N3 → REM) and to classify sleep states from raw EEG data, aiding in sleep quality analysis.</p><div class="metrics"><div class="metric">Enhanced accuracy in sleep quality monitoring</div><div class="metric">Valuable features for sleep health studies</div></div></div>
+                    <div class="case-card"><h3>> Modeling Human & Animal Cognitive Processing with RL</h3><p>Led a research project modeling human and animal decision-making using reinforcement learning (RL) to uncover the mechanisms underlying choice behavior.</p><div class="metrics"><div class="metric">Provided novel insights into cognitive behavior</div><div class="metric">Published results in scientific collaboration</div></div></div>
+                    <div class="case-card"><h3>> Automated Water Production Forecasting</h3><p>Designed scalable ML pipelines to forecast water production and optimize maintenance for large utility networks, supporting real-time operational decisions.</p><div class="metrics"><div class="metric">Improved forecasting accuracy</div><div class="metric">Enabled proactive maintenance and reduced costs</div></div></div>
+                    <div class="case-card"><h3>> Smart Water Dashboards</h3><p>Built interactive dashboards visualizing water production metrics, supporting decision-making for utility managers with live analytics.</p><div class="metrics"><div class="metric">Real-time insights for operational leadership</div><div class="metric">Increased data-driven decision adoption</div></div></div>
+                    <div class="case-card" style="background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.1));"><h3>> Your Business Here</h3><p>What will we build together :)?</p><div class="metrics"><div class="metric">Custom Solutions</div><div class="metric">Data-Driven Results</div></div></div>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Looking for more inspiration?</p>
+                    <a href="../popular-projects.html" style="display: inline-block; padding: 1rem 2rem; background-color: var(--accent-purple); color: var(--button-text); text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;">See Popular Projects</a>
+                </div>
+                <div style="text-align: center;">
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">Ready-to-deploy solutions?</p>
+                    <a href="../products/flagstone-projects.html" style="display: inline-block; padding: 1rem 2rem; background-color: var(--accent-blue); color: var(--button-text); text-decoration: none; font-weight: bold; border: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 2px; border-radius: 8px;">View Flagstone Products</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Fast AI. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const bodyEl = document.body;
+        const toggleButton = document.querySelector('.toggle-mode-button');
+        const emojiSpan = document.querySelector('.toggle-mode-button-emoji');
+        const THEME_KEY = 'fastai-theme';
+
+        function updateToggleEmoji() {
+            if (bodyEl.classList.contains('light-mode')) { emojiSpan.textContent = '☀️'; } else { emojiSpan.textContent = '🌙'; }
+        }
+
+        const applyTheme = (mode) => { if (mode === 'light') { bodyEl.classList.add('light-mode'); } else { bodyEl.classList.remove('light-mode'); } updateToggleEmoji(); };
+        const storedTheme = localStorage.getItem(THEME_KEY);
+        if (storedTheme) { applyTheme(storedTheme); } else { applyTheme(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+        toggleButton.addEventListener('click', (event) => { event.preventDefault(); bodyEl.classList.toggle('light-mode'); const mode = bodyEl.classList.contains('light-mode') ? 'light' : 'dark'; localStorage.setItem(THEME_KEY, mode); updateToggleEmoji(); });
+
+        // Enhanced mobile carousel with touch support (moved from homepage)
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.querySelector('.carousel');
+            if (!carousel) return;
+            const arrowBtns = document.querySelectorAll('.carousel-arrow');
+            let isDragging = false, startX, startScrollLeft, isTouch = false;
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            const getCardWidth = () => { const card = carousel.querySelector('.case-card'); return card ? card.offsetWidth + 32 : 400; };
+            arrowBtns.forEach(btn => { btn.addEventListener('click', () => { const cardWidth = getCardWidth(); carousel.scrollLeft += btn.classList.contains('left') ? -cardWidth : cardWidth; }); });
+            const dragStart = (e) => { isDragging = true; isTouch = e.type === 'touchstart'; carousel.classList.add('dragging'); startX = isTouch ? e.touches[0].pageX : e.pageX; startScrollLeft = carousel.scrollLeft; };
+            const dragging = (e) => { if (!isDragging) return; e.preventDefault(); const currentX = isTouch ? e.touches[0].pageX : e.pageX; carousel.scrollLeft = startScrollLeft - (currentX - startX); };
+            const dragStop = () => { isDragging = false; carousel.classList.remove('dragging'); };
+            carousel.addEventListener('mousedown', dragStart);
+            carousel.addEventListener('mousemove', dragging);
+            document.addEventListener('mouseup', dragStop);
+            if (isTouchDevice) {
+                carousel.addEventListener('touchstart', dragStart, { passive: false });
+                carousel.addEventListener('touchmove', dragging, { passive: false });
+                carousel.addEventListener('touchend', dragStop);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
