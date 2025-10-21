@@ -85,6 +85,11 @@
             border-color: var(--accent-blue);
         }
 
+        /* Ensure anchor scroll to AutoMax leaves heading visible */
+        #automax {
+            scroll-margin-top: 120px;
+        }
+
         body.light-mode .careers-button:hover,
         body.light-mode .younews-button:hover {
             background-color: var(--accent-blue);
@@ -480,6 +485,8 @@
                 gap: 1.5rem;
                 padding: 0 1rem;
             }
+            /* Larger offset on mobile due to tighter header spacing */
+            #automax { scroll-margin-top: 160px; }
             
             .automation-header h2 {
                 font-size: 2rem;
