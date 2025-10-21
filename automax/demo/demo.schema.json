@@ -1,0 +1,30 @@
+{
+    "report_metadata": {
+      "fiscal_year": 2024,
+      "company_name": "Nestlé S.A.",
+      "report_title": "Consolidated Financial Statements",
+      "publication_url": "https://www.nestle.com/sites/default/files/2025-02/2024-financial-statements-en.pdf"
+    },
+    "financials": {
+      "sales_revenue_m_chf": 91354,
+      "net_profit_m_chf": 10884,
+      "profit_margin_pct": 11.9,
+      "basic_eps_chf": 4.19,
+      "cash_and_equivalents_m_chf": 5556,
+      "total_assets_m_chf": 139264,
+      "total_liabilities_m_chf": 102571,
+      "total_equity_m_chf": 36693
+    },
+    "ratios": {
+      "debt_to_equity": "2.8",  // derived: 102571 / 36693
+      "return_on_sales_pct": "16.0" // trading operating profit / sales
+    },
+    "qualitative_insights": {
+      "year_on_year_profit_change": "negative",  // based on 2023 profit of 11209 vs 10884
+      "notable_changes": [
+        "Slight decline in total sales and net profit compared to 2023",
+        "Operating profit improved despite higher financial expenses",
+        "Comprehensive income rebounded significantly due to currency gains"
+      ]
+    }
+  }

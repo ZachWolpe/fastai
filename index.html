@@ -1669,6 +1669,113 @@
         body.light-mode pre {
             color: var(--text-secondary);
         }
+        /* ===== AutoMax Slideshow ===== */
+        .automax-slideshow {
+            max-width: 1000px;
+            margin: 3rem auto 0 auto;
+            position: relative;
+        }
+        .automax-slideshow .slides {
+            background: var(--card-background);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 380px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.35) inset,
+                        0 0 24px rgba(139, 92, 246, 0.22),
+                        0 0 48px rgba(236, 72, 153, 0.14);
+            border-color: rgba(139, 92, 246, 0.5);
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .automax-slideshow .slides:hover {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.5) inset,
+                        0 0 30px rgba(139, 92, 246, 0.3),
+                        0 0 60px rgba(236, 72, 153, 0.22);
+        }
+        .automax-slideshow .slide {
+            display: none;
+            color: var(--text-secondary);
+        }
+        .automax-slideshow .slide.active {
+            display: block;
+        }
+        .automax-slideshow h3 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+        .automax-slideshow pre {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1rem;
+            color: var(--text-secondary);
+            overflow: auto;
+        }
+        .slideshow-arrow {
+            height: 44px;
+            width: 44px;
+            background: var(--card-background);
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            text-align: center;
+            line-height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+        .slideshow-arrow:hover {
+            background: var(--accent-purple);
+            color: var(--page-text);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+        .slideshow-arrow.left { left: 12px; }
+        .slideshow-arrow.right { right: 12px; }
+        .slideshow-status {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: rgba(0,0,0,0.0);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+        /* Demo subheading (left-aligned, smaller than main section headings) */
+        .automax-demo-header {
+            max-width: 1000px;
+            margin: 0 auto 1rem auto;
+            text-align: left;
+        }
+        .automax-demo-header h3 {
+            background: linear-gradient(to right, var(--accent-purple), var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+        .automax-demo-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        @media (max-width: 768px) {
+            .automax-slideshow .slides { padding: 1.25rem; min-height: 280px; }
+            .slideshow-arrow { display: none; }
+            .slideshow-status { bottom: 6px; font-size: 0.85rem; }
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
@@ -1719,7 +1826,21 @@
                         Extract data, digitize & process documents automatically, with <span class="terminal-green">AutoMax</span>.
                     </p>
                 </div>
-            </div>  
+            </div> 
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <h1 class="glitch-text" style="font-size: 2.2rem; margin: 0; text-align: center;">fastaiconsulting.net</h1>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
             <br><br>
             <br><br>
             <br><br>
@@ -1764,7 +1885,89 @@
                 </div>
             </div>
         </section>
-        
+
+        <!-- AutoMax slideshow -->
+        <section class="automation-section">
+            <div class="automax-demo-header">
+                <h1>> How it Works_</h1>
+                <p>Suppose a company processes financial reports. An analyst is tasked with extracting key data, summarising the report & making a recommendation. Use the arrows or ← → keys; swipe on mobile.</p>
+            </div>
+            <div class="automax-slideshow" id="automax-slideshow" tabindex="0">
+                <div class="slideshow-arrow left" aria-label="Previous slide" role="button" tabindex="0">‹</div>
+                <div class="slideshow-arrow right" aria-label="Next slide" role="button" tabindex="0">›</div>
+                <div class="slides">
+                    <div class="slide active" data-index="0">
+                        <h3>: Document + Empty Schema_</h3>
+                        <p style="margin-bottom: 0.75rem;">Provide a document and a target data schema (fields to extract).</p>
+                        <p style="margin-bottom: 0.75rem;"><a href="https://www.nestle.com/sites/default/files/2025-02/2024-financial-statements-en.pdf" target="_blank" rel="noopener noreferrer">Sample report: Nestle 2024 financial statements →</a></p>
+                        <pre>{
+  "report_metadata": {},
+  "financials": {},
+  "ratios": {},
+  "qualitative_insights": {}
+}</pre>
+                    </div>
+                    <div class="slide" data-index="1">
+                        <h3>: AutoMax extracts data & is able to understand context.</h3>
+                        <p style="margin-bottom: 0.75rem;">AutoMax parses the file and populates your schema with structured fields. AutoMax is able to understand context & compute/summarise derived fields.</p>
+                        <pre>{
+  "report_metadata": {
+    "company_name": "Nestlé S.A.",
+    "fiscal_year": 2024
+  },
+  "financials": {
+    "sales_revenue_m_chf": 91354,
+    "net_profit_m_chf": 10884,
+    "profit_margin_pct": 11.9
+  },
+  "ratios": {
+    "debt_to_equity": "2.8",  // derived: 102571 / 36693
+    "return_on_sales_pct": "16.0" // trading operating profit / sales
+  },
+  "qualitative_insights": {
+    "year_on_year_profit_change": "negative",  // based on 2023 profit of 11209 vs 10884
+    "notable_changes": [
+      "Slight decline in total sales and net profit compared to 2023",
+      "Operating profit improved despite higher financial expenses",
+      "Comprehensive income rebounded significantly due to currency gains"
+    ]
+  }
+}</pre>
+                    </div>
+                    <div class="slide" data-index="2">
+                        <h3>: Decision Logic_</h3>
+                        <p style="margin-bottom: 0.75rem;">When fully integrated, AutoMax can make decisions based on the extracted data.</p>
+                        <div style="display:flex;justify-content:center;">
+                            <svg viewBox="0 0 420 180" width="100%" height="180" style="max-width:520px;color:var(--accent-purple);">
+                                <g fill="none" stroke="currentColor" stroke-width="2.5">
+                                    <circle cx="210" cy="40" r="22"/>
+                                    <line x1="210" y1="62" x2="120" y2="110"/>
+                                    <line x1="210" y1="62" x2="300" y2="110"/>
+                                    <circle cx="120" cy="110" r="18"/>
+                                    <circle cx="300" cy="110" r="18"/>
+                                </g>
+                                <g fill="currentColor" font-size="14" font-weight="700" text-anchor="middle">
+                                    <text x="210" y="14">Decision: Debt : Equity</text>
+                                    <text x="120" y="150">Buy</text>
+                                    <text x="300" y="150">Sell</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="slide" data-index="3">
+                        <h3>: Integrate_</h3>
+                        <p style="margin-bottom: 0.75rem;">AutoMax is designed to be integrated into your existing workflows.</p>
+                        <ul style="margin-left:1.2rem;">
+                            <li>✅ API access available immediately</li>
+                            <li>✅ Complete Engineering Integration Available on request</li>
+                            <li>✅ Excel/Sheets export</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="slideshow-status" aria-live="polite">1 / 4</div>
+            </div>
+        </section>
+
         <!-- Cross-link to Consulting offerings -->
         <section class="automation-section" style="margin-top: 2rem;">
             <div class="automation-header">
@@ -2100,6 +2303,50 @@
                 }
             });
         }
+
+        // AutoMax Slideshow Controller
+        (function() {
+            const root = document.getElementById('automax-slideshow');
+            if (!root) return;
+            const slides = Array.from(root.querySelectorAll('.slide'));
+            const prevBtn = root.querySelector('.slideshow-arrow.left');
+            const nextBtn = root.querySelector('.slideshow-arrow.right');
+            const status = root.querySelector('.slideshow-status');
+            let index = 0;
+
+            const setIndex = (i) => {
+                index = (i + slides.length) % slides.length;
+                slides.forEach((s, idx) => s.classList.toggle('active', idx === index));
+                if (status) status.textContent = (index + 1) + ' / ' + slides.length;
+            };
+
+            prevBtn && prevBtn.addEventListener('click', () => setIndex(index - 1));
+            nextBtn && nextBtn.addEventListener('click', () => setIndex(index + 1));
+
+            // Keyboard support
+            root.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') setIndex(index - 1);
+                if (e.key === 'ArrowRight') setIndex(index + 1);
+            });
+
+            // Basic touch swipe
+            let startX = null;
+            root.addEventListener('touchstart', (e) => {
+                if (e.touches && e.touches[0]) startX = e.touches[0].clientX;
+            }, { passive: true });
+            root.addEventListener('touchend', (e) => {
+                if (startX === null) return;
+                const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+                const delta = endX - startX;
+                if (Math.abs(delta) > 40) {
+                    if (delta > 0) setIndex(index - 1); else setIndex(index + 1);
+                }
+                startX = null;
+            });
+
+            // Initialize
+            setIndex(0);
+        })();
     </script>
 </body>
 </html> 
