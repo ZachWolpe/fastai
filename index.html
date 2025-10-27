@@ -95,9 +95,18 @@
             border-color: var(--accent-blue);
         }
 
-        /* Ensure anchor scroll to AutoMax leaves heading visible */
-        #automax {
+        /* Ensure anchor scroll to anchor targets leave headings visible */
+        #automax,
+        #contact {
             scroll-margin-top: 120px;
+        }
+
+        /* Slightly larger offset on very small screens */
+        @media (max-width: 640px) {
+            #automax,
+            #contact {
+                scroll-margin-top: 140px;
+            }
         }
 
         body.light-mode .careers-button:hover,
@@ -1888,7 +1897,7 @@
                 </div>
                 <div style="flex: 2; display: flex; align-items: center; justify-content: center;">
                     <p class="glitch-text" style="font-size: 1.5rem; margin: 0; text-align: center;">
-                        Extract data, digitize & process documents automatically, with <span class="terminal-green">AutoMax</span>.
+                        Extract, digitize, and process documents automatically with <span class="terminal-green">AutoMax</span>.
                     </p>
                 </div>
             </div> 
