@@ -45,6 +45,8 @@
             --header-gradient-end-strong: rgba(17, 24, 39, 0.9);
             --header-chip-background: rgba(13, 13, 13, 0.65);
             --header-chip-border: rgba(255, 255, 255, 0.05);
+            --terminal-green-text: #00ff00;
+            --terminal-green-glow: rgba(0, 255, 0, 0.7);
         }
 
         body.light-mode {
@@ -68,6 +70,8 @@
             --header-gradient-end-strong: rgba(255, 255, 255, 0.9);
             --header-chip-background: rgba(255, 255, 255, 0.85);
             --header-chip-border: rgba(15, 23, 42, 0.12);
+            --terminal-green-text: #166534;
+            --terminal-green-glow: rgba(34, 197, 94, 0.6);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', Courier, monospace; }
@@ -86,6 +90,12 @@
         .back-link:hover { background-color: var(--accent-purple); color: var(--page-text); box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
         .glitch-text { font-size: 5.5rem; font-weight: 800; font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', monospace; text-transform: uppercase; letter-spacing: 0.2em; background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; }
         .subtitle { color: var(--text-secondary); font-size: 1.2rem; margin-top: 1rem; }
+
+        /* Terminal green styling and header bullets */
+        .terminal-green { color: var(--terminal-green-text); text-shadow: 0 0 6px var(--terminal-green-glow); font-family: 'Courier New', Courier, monospace; }
+        .header-bullets { list-style: none; margin: 2rem auto 0 auto; padding: 0; color: var(--text-secondary); font-size: 1.12rem; max-width: 700px; text-align: left; }
+        .header-bullets li { margin-bottom: 0.7rem; display: flex; align-items: flex-start; gap: 0.6rem; }
+        .header-bullets li::before { content: '•'; color: var(--accent-purple); font-weight: bold; line-height: 1; }
 
         /* From homepage for moved sections */
         .automation-section { margin: 6rem 0; padding: 0 2rem; }
@@ -157,7 +167,13 @@
                 <a href="../careers/index.html" class="header-link careers-link">Careers</a>
             </div>
             <h1 class="glitch-text" style="background: linear-gradient(to right, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; color: transparent;">Consulting</h1>
-            <p class="subtitle">Bespoke automation, AI consulting, deployment architecture, and notable projects.</p>
+            <p class="subtitle">Need a custom build? We'll help you scope out projects, assess feasibility, & implement custom AI &amp; ML solutions. Unlock a dedicated, specialized team of AI &amp; ML engineers, <span class="terminal-green">today</span>.</p>
+        <ul class="header-bullets">
+            <li>Scale up, or down, as needed.</li>
+            <li>Unlock a team of experts immediately.</li>
+            <li>Pay a fraction of the cost of full time hiring.</li>
+            <li>Take on as much or as little engineering as you want.</li>
+        </ul>
         </header>
 
         <!-- Bespoke Automation Pipelines -->
