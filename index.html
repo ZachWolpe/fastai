@@ -1790,6 +1790,12 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
         }
+        /* Ensure slideshow content remains left-aligned when nested inside .automation-header */
+        .automation-header .automax-demo-header,
+        .automation-header .automax-slideshow .slides,
+        .automation-header .automax-slideshow .slide {
+            text-align: left;
+        }
         @media (max-width: 768px) {
             .automax-slideshow .slides { padding: 1.25rem; min-height: 280px; }
             .slideshow-arrow { display: none; }
@@ -1932,6 +1938,87 @@
                     Your browser does not support the video tag.
                 </video>
             </div>
+            <!-- AutoMax slideshow moved directly after one-line description -->
+            <section class="automation-section">
+                <div class="automax-demo-header">
+                    <h1>> How it Works_</h1>
+                    <p>Suppose a company processes financial reports. An analyst is tasked with extracting key data, summarising the report & making a recommendation. Use the arrows or ← → keys; swipe on mobile.</p>
+                </div>
+                <div class="automax-slideshow" id="automax-slideshow" tabindex="0">
+                    <div class="slideshow-arrow left" aria-label="Previous slide" role="button" tabindex="0">‹</div>
+                    <div class="slideshow-arrow right" aria-label="Next slide" role="button" tabindex="0">›</div>
+                    <div class="slides">
+                        <div class="slide active" data-index="0">
+                            <h3>: Document + (Optional) Schema_</h3>
+                            <p style="margin-bottom: 0.75rem;">Provide a document and a target data schema (fields to extract).</p>
+                            <p style="margin-bottom: 0.75rem;"><a href="https://www.nestle.com/sites/default/files/2025-02/2024-financial-statements-en.pdf" target="_blank" rel="noopener noreferrer">Sample report: Nestle 2024 financial statements →</a></p>
+                            <pre>{
+  "report_metadata": {},
+  "financials": {},
+  "ratios": {},
+  "qualitative_insights": {}
+}</pre>
+                        </div>
+                        <div class="slide" data-index="1">
+                            <h3>: AutoMax extracts data & is able to understand context.</h3>
+                            <p style="margin-bottom: 0.75rem;">AutoMax parses the file and populates your schema with structured fields. AutoMax is able to understand context & compute/summarise derived fields.</p>
+                            <pre>{
+  "report_metadata": {
+    "company_name": "Nestlé S.A.",
+    "fiscal_year": 2024
+  },
+  "financials": {
+    "sales_revenue_m_chf": 91354,
+    "net_profit_m_chf": 10884,
+    "profit_margin_pct": 11.9
+  },
+  "ratios": {
+    "debt_to_equity": "2.8",  // derived: 102571 / 36693
+    "return_on_sales_pct": "16.0" // trading operating profit / sales
+  },
+  "qualitative_insights": {
+    "year_on_year_profit_change": "negative",  // based on 2023 profit of 11209 vs 10884
+    "notable_changes": [
+      "Slight decline in total sales and net profit compared to 2023",
+      "Operating profit improved despite higher financial expenses",
+      "Comprehensive income rebounded significantly due to currency gains"
+    ]
+  }
+}</pre>
+                        </div>
+                        <div class="slide" data-index="2">
+                            <h3>: Decision Logic_</h3>
+                            <p style="margin-bottom: 0.75rem;">When fully integrated, AutoMax can make decisions based on the extracted data.</p>
+                            <div style="display:flex;justify-content:center;">
+                                <svg viewBox="0 0 420 180" width="100%" height="180" style="max-width:520px;color:var(--accent-purple);">
+                                    <g fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <circle cx="210" cy="40" r="22"/>
+                                        <line x1="210" y1="62" x2="120" y2="110"/>
+                                        <line x1="210" y1="62" x2="300" y2="110"/>
+                                        <circle cx="120" cy="110" r="18"/>
+                                        <circle cx="300" cy="110" r="18"/>
+                                    </g>
+                                    <g fill="currentColor" font-size="14" font-weight="700" text-anchor="middle">
+                                        <text x="210" y="14">Decision: Debt : Equity</text>
+                                        <text x="120" y="150">Buy</text>
+                                        <text x="300" y="150">Sell</text>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="slide" data-index="3">
+                            <h3>: Integrate_</h3>
+                            <p style="margin-bottom: 0.75rem;">AutoMax is designed to be integrated into your existing workflows.</p>
+                            <ul style="margin-left:1.2rem;">
+                                <li>✅ API access available immediately</li>
+                                <li>✅ Complete Engineering Integration Available on request</li>
+                                <li>✅ Excel/Sheets export</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slideshow-status" aria-live="polite">1 / 4</div>
+                </div>
+            </section>
         </div>
         <div class="automax-getting-started">
             <div class="automax-steps">
@@ -1962,87 +2049,7 @@
             </div>
         </div>
 
-        <!-- AutoMax slideshow -->
-        <section class="automation-section">
-            <div class="automax-demo-header">
-                <h1>> How it Works_</h1>
-                <p>Suppose a company processes financial reports. An analyst is tasked with extracting key data, summarising the report & making a recommendation. Use the arrows or ← → keys; swipe on mobile.</p>
-            </div>
-            <div class="automax-slideshow" id="automax-slideshow" tabindex="0">
-                <div class="slideshow-arrow left" aria-label="Previous slide" role="button" tabindex="0">‹</div>
-                <div class="slideshow-arrow right" aria-label="Next slide" role="button" tabindex="0">›</div>
-                <div class="slides">
-                    <div class="slide active" data-index="0">
-                        <h3>: Document + (Optional) Schema_</h3>
-                        <p style="margin-bottom: 0.75rem;">Provide a document and a target data schema (fields to extract).</p>
-                        <p style="margin-bottom: 0.75rem;"><a href="https://www.nestle.com/sites/default/files/2025-02/2024-financial-statements-en.pdf" target="_blank" rel="noopener noreferrer">Sample report: Nestle 2024 financial statements →</a></p>
-                        <pre>{
-  "report_metadata": {},
-  "financials": {},
-  "ratios": {},
-  "qualitative_insights": {}
-}</pre>
-                    </div>
-                    <div class="slide" data-index="1">
-                        <h3>: AutoMax extracts data & is able to understand context.</h3>
-                        <p style="margin-bottom: 0.75rem;">AutoMax parses the file and populates your schema with structured fields. AutoMax is able to understand context & compute/summarise derived fields.</p>
-                        <pre>{
-  "report_metadata": {
-    "company_name": "Nestlé S.A.",
-    "fiscal_year": 2024
-  },
-  "financials": {
-    "sales_revenue_m_chf": 91354,
-    "net_profit_m_chf": 10884,
-    "profit_margin_pct": 11.9
-  },
-  "ratios": {
-    "debt_to_equity": "2.8",  // derived: 102571 / 36693
-    "return_on_sales_pct": "16.0" // trading operating profit / sales
-  },
-  "qualitative_insights": {
-    "year_on_year_profit_change": "negative",  // based on 2023 profit of 11209 vs 10884
-    "notable_changes": [
-      "Slight decline in total sales and net profit compared to 2023",
-      "Operating profit improved despite higher financial expenses",
-      "Comprehensive income rebounded significantly due to currency gains"
-    ]
-  }
-}</pre>
-                    </div>
-                    <div class="slide" data-index="2">
-                        <h3>: Decision Logic_</h3>
-                        <p style="margin-bottom: 0.75rem;">When fully integrated, AutoMax can make decisions based on the extracted data.</p>
-                        <div style="display:flex;justify-content:center;">
-                            <svg viewBox="0 0 420 180" width="100%" height="180" style="max-width:520px;color:var(--accent-purple);">
-                                <g fill="none" stroke="currentColor" stroke-width="2.5">
-                                    <circle cx="210" cy="40" r="22"/>
-                                    <line x1="210" y1="62" x2="120" y2="110"/>
-                                    <line x1="210" y1="62" x2="300" y2="110"/>
-                                    <circle cx="120" cy="110" r="18"/>
-                                    <circle cx="300" cy="110" r="18"/>
-                                </g>
-                                <g fill="currentColor" font-size="14" font-weight="700" text-anchor="middle">
-                                    <text x="210" y="14">Decision: Debt : Equity</text>
-                                    <text x="120" y="150">Buy</text>
-                                    <text x="300" y="150">Sell</text>
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="slide" data-index="3">
-                        <h3>: Integrate_</h3>
-                        <p style="margin-bottom: 0.75rem;">AutoMax is designed to be integrated into your existing workflows.</p>
-                        <ul style="margin-left:1.2rem;">
-                            <li>✅ API access available immediately</li>
-                            <li>✅ Complete Engineering Integration Available on request</li>
-                            <li>✅ Excel/Sheets export</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="slideshow-status" aria-live="polite">1 / 4</div>
-            </div>
-        </section>
+        <!-- AutoMax slideshow moved above, directly after the one-line description -->
 
         <!-- Cross-link to Consulting offerings -->
         <section class="automation-section" style="margin-top: 2rem;">
